@@ -1,11 +1,15 @@
 import Users from "../models/Users.js";
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
+import jwt from "jsonwebtoken";
+dotenv.config();
 
 const saltRound = 10;
 const genSalt = await bcrypt.genSalt(saltRound);
 
-const register = async (req, res) => {
+export const register = async (req, res) => {
   const {
+    nama,
     username,
     email,
     noHP,
@@ -24,6 +28,7 @@ const register = async (req, res) => {
     const hashPassword = await bcrypt.hash(password, genSalt);
 
     const newUser = await Users.create({
+      nama,
       username,
       email,
       noHP,
@@ -34,7 +39,7 @@ const register = async (req, res) => {
     return res.status(201).json({
       status: "SUCCESS",
       msg: "Berhasil membuat akun",
-      data: newUser
+      payload: newUser
     })
   } catch (error) {
     return res.status(400).json({
@@ -45,6 +50,63 @@ const register = async (req, res) => {
   }
 }
 
-export {
-  register
-};
+export const login = async (req, res) => {
+  const { username, email, password } = req.body;
+
+  const user = await Users.findOne({
+    email
+  })
+
+  if (!user) {
+    return res.status(403).json({
+      status: "ERROR",
+      msg: "Email atau Password salah!"
+    });
+  }
+
+  const isPasswordMatched = await bcrypt.compare(password, user.password);
+
+  if (!isPasswordMatched) {
+    return res.status(401).json({
+      status: "ERROR",
+      msg: "Email atau Password salah!"
+    });
+  }
+
+  const accessToken = jwt.sign({
+    _id: user._id,
+    username: user.role
+  }, process.env.SECRET_KEY, {
+    expiresIn: '30m',
+  })
+
+  const refreshToken = jwt.sign({
+    _id: user._id,
+    role: user.role
+  }, process.env.SECRET_KEY, {
+    expiresIn: '3d',
+  })
+
+  user.refreshToken = refreshToken;
+  await user.save();
+
+  res.cookie('accessToken', accessToken, {
+    httpOnly: true,
+    // secure: true,
+    maxAge: 15 * 60 * 1000,
+  });
+
+  res.cookie('refreshToken', refreshToken, {
+    httpOnly: true,
+    // secure: true,
+    maxAge: 3 * 24 * 60 * 60 * 1000,
+  });
+
+  res.status(200).json({
+    status: "OK",
+    msg: "Berhasil Login",
+    payload: {
+      accessToken
+    }
+  })
+}
