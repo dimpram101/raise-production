@@ -51,7 +51,7 @@ export const register = async (req, res) => {
 }
 
 export const login = async (req, res) => {
-  const { username, email, password } = req.body;
+  const { email, password } = req.body;
 
   const user = await Users.findOne({
     email
@@ -75,7 +75,7 @@ export const login = async (req, res) => {
 
   const accessToken = jwt.sign({
     _id: user._id,
-    username: user.role
+    role: user.role
   }, process.env.SECRET_KEY, {
     expiresIn: '30m',
   })
