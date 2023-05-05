@@ -10,9 +10,18 @@ const projectSchema = new Schema({
     type: Schema.Types.ObjectId,
     required: true,
   },
-  deskripsi: String,
-  deadline: Schema.Types.Date,
-  link_komponen: String,
+  deskripsi: {
+    type: String,
+    required: true,
+  },
+  deadline: {
+    type: Schema.Types.Date,
+    required: true
+  },
+  link_komponen: {
+    type: String,
+    required: true,
+  },
   customize: Schema.Types.Array,
   status: [statusSchema],
   linkHasilAkhir: String
