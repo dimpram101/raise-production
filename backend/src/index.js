@@ -5,11 +5,15 @@ import cookieParser from "cookie-parser";
 import userRoute from "./routes/userRoutes.js";
 import projectVideoRoute from "./routes/projectVideoRoutes.js";
 import projectGraphicRoute from "./routes/projectGraphicRoutes.js";
+import cors from "cors";
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({
+  origin: ["http://http://127.0.0.1:5173"],
+}));
 
 app.get('/', (req, res) => {
   res.send("Hello");
