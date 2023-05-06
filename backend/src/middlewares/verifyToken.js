@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import Users from "../models/Users.js";
 
 export const verifyToken = (req, res, next) => {
   const token = req.cookies.accessToken;
@@ -9,12 +10,56 @@ export const verifyToken = (req, res, next) => {
     req.userData = decoded;
     next();
   } catch (error) {
-    if (error instanceof jwt.TokenExpiredError) return res.status(401).json({ status: "ERROR", msg: "Sesi anda telah habis, silahkan login ulang!"});
+    if (error instanceof jwt.TokenExpiredError) {
+      verifyRefreshToken(next);
+    }
 
-    return res.status(403).json({ status: "ERROR", msg: "Token tidak valid!"})
+    return res.status(403).json({ status: "ERROR", msg: "Token tidak valid!" })
   }
 }
 
+const verifyRefreshToken = (next) => {
+  const refreshToken = req.cookies.refreshToken;
+  if (!refreshToken) return res.status(401).json({ status: "ERROR", msg: "refreshToken is missing" });
+
+  try {
+    const decoded = jwt.verify(refreshToken, process.env.SECRET_KEY);
+    const newAccessToken = jwt.sign(decoded, process.env.SECRET_KEY);
+    res.cookie('accessToken', newAccessToken, {
+      httpOnly: true,
+      maxAge: 15 * 60 * 1000
+    })
+    req.userData = decoded;
+    next();
+  } catch (error) {
+    if (error instanceof jwt.TokenExpiredError) return res.status(401).json({ status: "UNAUTHORIZED", msg: "Sesi anda telah habis, silahkan login ulang!" });
+
+    return res.status(403).json({ status: "ERROR", msg: "Refresh Token tidak valid!" })
+  }
+}
+
+// const verifyRefreshToken = (decoded, next) => {
+//   const user = Users.findOne({
+//     _id: decoded._id,
+//   });
+//   const refreshToken = user.refreshToken;
+//   if (!refreshToken) return res.status(401).json({ status: "ERROR", msg: "refreshToken is missing" });
+
+//   try {
+//     const decoded = jwt.verify(refreshToken, process.env.SECRET_KEY);
+//     const newAccessToken = jwt.sign(decoded, process.env.SECRET_KEY);
+//     res.cookie('accessToken', newAccessToken, {
+//       httpOnly: true,
+//       maxAge: 15 * 60 * 1000
+//     })
+//     req.userData = decoded;
+//     next();
+//   } catch (error) {
+//     if (error instanceof jwt.TokenExpiredError) return res.status(401).json({ status: "UNAUTHORIZED", msg: "Sesi anda telah habis, silahkan login ulang!" });
+
+//     return res.status(403).json({ status: "ERROR", msg: "Refresh Token tidak valid!" })
+//   }
+// }
 
 // function verifyToken(req, res, next) {
 //   const token = req.cookies.jwt;
