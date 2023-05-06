@@ -1,4 +1,4 @@
-import ProjectGraphics from "../models/ProjectGraphics";
+import ProjectGraphics from "../models/ProjectGraphics.js";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -50,7 +50,7 @@ export const getProjectGraphic = async (req, res) => {
             msg: "Berhasil mendapat permintaan projek graphic",  
             payload: allGraphic      
         })
-    } catch {
+    } catch (error) {
         return res.status(400).json({
             status: "ERROR",
             msg: "Gagal mendapat permintaan projek graphic",
@@ -68,7 +68,7 @@ export const getProjectGraphicByID = async (req, res) => {
             msg: "Berhasil mendapat permintaan projek graphic berdasar id",        
             payload: idGraphic
         })
-    } catch {
+    } catch (error) {
         return res.status(400).json({
             status: "ERROR",
             msg: "Gagal mendapat permintaan projek graphic berdasar id",
@@ -85,7 +85,7 @@ export const getProjectGraphicByUserID = async (req, res) => {
             msg: "Berhasil mendapat permintaan projek graphic berdasar id",
             payload: userGraphic
         })
-    } catch {
+    } catch (error) {
         return res.status(400).json({
             status: "ERROR",
             msg: "Gagal mendapat permintaan projek graphic berdasar id",
@@ -95,6 +95,8 @@ export const getProjectGraphicByUserID = async (req, res) => {
 }
 
 export const updateProjectGraphic = async (req, res) => {
+    const { id } = req.params;
+    
     const {
         newStatus
     } = req.body
@@ -102,7 +104,7 @@ export const updateProjectGraphic = async (req, res) => {
     try {
         const idGraphic = await ProjectGraphics.findOne({_id: id});
         idGraphic.status.push({
-            keterangan: newStatus,
+            ...newStatus,
             tanggalUpdate: Date.now()
         });
         await idGraphic.save();
@@ -112,7 +114,8 @@ export const updateProjectGraphic = async (req, res) => {
             msg: "Berhasil update permintaan projek graphic berdasar id",
             payload: idGraphic
         })
-    } catch {
+    } catch (error){
+        console.log(error);
         return res.status(400).json({
             status: "ERROR",
             msg: "Gagal update permintaan projek graphic berdasar id",

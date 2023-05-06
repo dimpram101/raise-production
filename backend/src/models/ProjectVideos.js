@@ -11,8 +11,7 @@ const projectSchema = new Schema({
     required: true,
   },
   kategori: {
-    type: Schema.Types.ObjectId,
-    required: true,
+    type: Schema.Types.Array,
   },
   deskripsi: {
     type: String,
@@ -26,13 +25,12 @@ const projectSchema = new Schema({
     type: String,
     required: true,
   },
-  customize: Schema.Types.Array,
   status: [statusSchema],
   linkHasilAkhir: String,
-  harga: Schema.Types.Number,
+  harga: String,
 });
 
-const Projects = model("project", projectSchema);
+const ProjectVideos = model("project-videos", projectSchema);
 
-export default Projects;
+export default ProjectVideos;
 

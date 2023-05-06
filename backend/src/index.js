@@ -1,10 +1,10 @@
 import express from "express";
 import "../config/database.js";
-import Users from "./models/Users.js";
-import Projects from "./models/Projects.js";
-import userRoute from "./routes/userRoutes.js";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import userRoute from "./routes/userRoutes.js";
+import projectVideoRoute from "./routes/projectVideoRoutes.js";
+import projectGraphicRoute from "./routes/projectGraphicRoutes.js";
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
@@ -32,7 +32,9 @@ app.get('/', (req, res) => {
 //   }
 // });
 
-// app.use("/user", userRoute);
+app.use("/user", userRoute);
+app.use('/project-video', projectVideoRoute);
+app.use('/project-graphic', projectGraphicRoute);
 
 // app.get('/projects', async(req, res) => {
 //   const project = await Projects.create({

@@ -110,3 +110,19 @@ export const login = async (req, res) => {
     }
   })
 }
+
+
+export const getUserData = async (req, res) => {
+  try {
+    const user = await Users.findOne({
+      _id: req.userData._id
+    });
+
+    res.status(200).json({
+      status: "OK",
+      payload: user
+    })
+  } catch (error) {
+    
+  }
+}

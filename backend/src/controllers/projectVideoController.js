@@ -1,4 +1,4 @@
-import ProjectVideos from "../models/ProjectVideos";
+import ProjectVideos from "../models/ProjectVideos.js";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -26,6 +26,7 @@ export const createProjectVideo = async (req, res) => {
             payload: newProjectVideo
         })
     } catch (error) {
+        console.log(error);
         return res.status(400).json({
             status: "ERROR",
             msg: "Gagal membuat permintaan projek video",
@@ -39,8 +40,8 @@ export const getProjectVideo = async (req, res) => {
         const allVideo = await ProjectVideos.find();
         return res.status(200).json({
             status: "SUCCESS",
-            msg: "Berhasil mendapat permintaan projek video",  
-            payload: allVideo      
+            msg: "Berhasil mendapat permintaan projek video",
+            payload: allVideo
         })
     } catch {
         return res.status(400).json({
@@ -54,13 +55,13 @@ export const getProjectVideo = async (req, res) => {
 export const getProjectVideoByID = async (req, res) => {
     const { id } = req.params;
     try {
-        const idVideo = await ProjectVideos.findOne({_id: id});
+        const idVideo = await ProjectVideos.findOne({ _id: id });
         return res.status(200).json({
             status: "SUCCESS",
-            msg: "Berhasil mendapat permintaan projek video berdasar id",        
+            msg: "Berhasil mendapat permintaan projek video berdasar id",
             payload: idVideo
         })
-    } catch {
+    } catch (error) {
         return res.status(400).json({
             status: "ERROR",
             msg: "Gagal mendapat permintaan projek video berdasar id",
@@ -71,13 +72,14 @@ export const getProjectVideoByID = async (req, res) => {
 
 export const getProjectVideoByUserID = async (req, res) => {
     try {
-        const userVideo = await ProjectVideos.find({userId: req.userData._id});
+        const userVideo = await ProjectVideos.find({ userId: req.userData._id });
         return res.status(200).json({
             status: "SUCCESS",
             msg: "Berhasil mendapat permintaan projek video berdasar id",
             payload: userVideo
         })
-    } catch {
+    } catch (error) {
+        console.log(user);
         return res.status(400).json({
             status: "ERROR",
             msg: "Gagal mendapat permintaan projek video berdasar id",
@@ -87,14 +89,15 @@ export const getProjectVideoByUserID = async (req, res) => {
 }
 
 export const updateProjectVideo = async (req, res) => {
+    const { id } = req.params;
     const {
         newStatus
     } = req.body
     
     try {
-        const idVideo = await ProjectVideos.findOne({_id: id});
+        const idVideo = await ProjectVideos.findOne({ _id: id });
         idVideo.status.push({
-            keterangan: newStatus,
+            ...newStatus,
             tanggalUpdate: Date.now()
         });
         await idVideo.save();
@@ -104,7 +107,8 @@ export const updateProjectVideo = async (req, res) => {
             msg: "Berhasil update permintaan projek video berdasar id",
             payload: idVideo
         })
-    } catch {
+    } catch (error) {
+        console.log(error);
         return res.status(400).json({
             status: "ERROR",
             msg: "Gagal update permintaan projek video berdasar id",
