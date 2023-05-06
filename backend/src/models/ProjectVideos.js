@@ -10,6 +10,10 @@ const projectSchema = new Schema({
     type: Schema.Types.ObjectId,
     required: true,
   },
+  kategori: {
+    type: Schema.Types.ObjectId,
+    required: true,
+  },
   deskripsi: {
     type: String,
     required: true,
@@ -24,7 +28,8 @@ const projectSchema = new Schema({
   },
   customize: Schema.Types.Array,
   status: [statusSchema],
-  linkHasilAkhir: String
+  linkHasilAkhir: String,
+  harga: Schema.Types.Number,
 });
 
 const Projects = model("project", projectSchema);
