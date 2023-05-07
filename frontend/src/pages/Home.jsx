@@ -39,30 +39,30 @@ const Home = () => {
             <h1>Tentang Kami</h1>
           </div>
 
-          <div className="mt-6 text-xl text-[#ECB365]">
+          <div className="mt-6 text-w text-[#ECB365]">
             <p className="text-center">Kami adalah tim profesional yang berbakat dan berpengalaman di bidang <br/> kami masing-masing, dan kami bersatu untuk menciptakan sesuatu yang <br/>luar biasa.</p>
           </div>
 
 
           <div className="mt-28 grid  grid-cols-2 gap-14">
             
-            <div className=" w-[650px]">
+            <div className="flex flex-col pl-28">
               <h1 className="text-2xl text-[#ECB365]">Pengalaman Tim</h1>
                 <p className=" text-xl text-justify text-white pt-3">Kami adalah sebuah tim profesional yang terdiri dari orang-orang yang berpengalaman dan ahli di bidangnya masing-masing. Dengan latar belakang yang beragam, kami bergabung bersama untuk memberikan pengalaman terbaik kepada pelanggan kami.</p>
             </div>
 
 
-            <div className="w-[650px]">
+            <div className="flex flex-col pr-28">
                 <h1 className="text-2xl text-[#ECB365]">Komunikasi Yang Cepat</h1>
                 <p className="text-justify text-xl text-white pt-3">Tim kami dikenal dengan kecepatan dan responsivitasnya yang luar biasa. Kami memahami bahwa setiap permintaan atau pertanyaan dari pelanggan penting untuk direspon dengan cepat dan akurat, dan itulah sebabnya kami selalu siap sedia untuk membantu Anda</p>
             </div>
 
-            <div className="w-[650px]">
+            <div className="flex flex-col pl-28">
                 <h1 className="text-2xl text-[#ECB365]">Harga Terbaik</h1>
                 <p className="text-justify text-xl text-white pt-3">Salah satu keunggulan kami adalah harga yang murah dan terjangkau. Kami memahami bahwa harga merupakan salah satu faktor yang sangat penting bagi pelanggan dalam memilih produk atau layanan. Oleh karena itu, kami selalu berusaha untuk menawarkan harga yang sesuai dengan anggaran pelanggan, tanpa mengorbankan kualitas atau fitur dari produk atau layanan kami</p>
             </div>
 
-            <div className="w-[650px]">
+            <div className="flex flex-col pr-28">
                 <h1 className="text-2xl text-[#ECB365]" >Kualitas</h1>
                 <p className="text-justify text-xl text-white pt-3">Kualitas adalah salah satu fokus utama kami. Kami menyadari bahwa pelanggan kami membutuhkan produk dan layanan yang andal dan berkualitas, dan kami berusaha untuk memenuhi ekspektasi tersebut dengan memberikan produk dan layanan yang terbaik.</p>
               </div>
