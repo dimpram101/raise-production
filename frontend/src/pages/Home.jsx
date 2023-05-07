@@ -1,8 +1,8 @@
-import Navbar from "../component/Navbar";
-import ServiceCard from "../component/ServiceCard";
-import Footer from "../component/Footer";
+import Navbar from "../Components/Landing_page/Navbar";
+import ServiceCard from "../Components/Landing_page/ServiceCard";
+import Footer from "../Components/Landing_page/Footer";
 
-const LandingPage = () => {
+const Home = () => {
 
   return(
     <>
@@ -10,7 +10,7 @@ const LandingPage = () => {
         <Navbar />
 
         <div className="pt-72 flex flex-col font-poppins items-center">
-          <div className="text-[72px] text-white font-[900]  flex flex-col items-center">
+          <div className="text-[72px] text-white font-[900] flex flex-col items-center">
               <h1>LAYANAN <span className="text-[#ECB365] ">EDITING</span> </h1>
               <h1>SEMUA MENJADI MUDAH</h1>
           </div>
@@ -20,7 +20,7 @@ const LandingPage = () => {
           </div>
 
           <div className="pt-10 ">
-            <button type="button"className="text-white bg-[#ECB365] hover:bg-[#e19f42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-[16px] px-2 py-2 text-center font-poppins mr-3 md:mr-0 ">GET STARTED</button>
+            <button type="button" className="text-white bg-[#ECB365] hover:bg-[#e19f42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-[16px] px-2 py-2 text-center font-poppins mr-3 md:mr-0 ">GET STARTED</button>
 
             <button type="button" className="ml-6 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-[#073054] rounded-lg border hover:border-[#ECB365] border-white hover:text-[#ECB365]">
               <div className="flex">
@@ -135,4 +135,4 @@ const LandingPage = () => {
 
 }
 
-export default LandingPage;
+export default Home;
