@@ -1,9 +1,9 @@
-import Navbar from "../../component/admin/Navbar";
+// import Navbar from "../../component/admin/Navbar";
 
 const Dashboard = () => {
   return (
     <>
-      <Navbar />
+    DANWDOIANWIOD
     </>
   )
 }

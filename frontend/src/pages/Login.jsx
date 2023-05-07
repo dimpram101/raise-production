@@ -7,14 +7,14 @@ const Login = () => {
             <h1 className="text-[72px] font-bold text-white">Masuk</h1>
       
             <form className="pt-6">
-              <div class="mb-6">
-                <label for="email" class="block mb-2 text-[24px]  text-[#ECB365] dark:text-white">Email</label>
-                <input type="email" id="email" class="bg-[#04293A] border border-[#ECB365] text-white text-sm rounded focus:ring-[#ECB365] focus:border-[#ECB365] block w-[500px] p-2.5" placeholder="Contoh: name@gmail.com" required/>
+              <div className="mb-6">
+                <label className="block mb-2 text-[24px]  text-[#ECB365] dark:text-white">Email</label>
+                <input type="email" id="email" className="bg-[#04293A] border border-[#ECB365] text-white text-sm rounded focus:ring-[#ECB365] focus:border-[#ECB365] block w-[500px] p-2.5" placeholder="Contoh: name@gmail.com" required/>
               </div>
 
-              <div class="mb-3">
-                <label for="password" class="block mb-2 text-[24px]  text-[#ECB365]">Password</label>
-                <input type="password" id="password" class="bg-[#04293A] border border-[#ECB365] text-white text-sm rounded focus:ring-[#ECB365] focus:border-[#ECB365] block w-[500px] p-2.5" placeholder="" required />
+              <div className="mb-3">
+                <label className="block mb-2 text-[24px]  text-[#ECB365]">Password</label>
+                <input type="password" id="password" className="bg-[#04293A] border border-[#ECB365] text-white text-sm rounded focus:ring-[#ECB365] focus:border-[#ECB365] block w-[500px] p-2.5" placeholder="" required />
                 <div className="pt-2 flex justify-end">
                   <a href="" className="text-[#ECB365] hover:text-[#e19f42]">Lupa Password ?</a>
                 </div>
