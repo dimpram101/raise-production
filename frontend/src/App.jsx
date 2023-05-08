@@ -14,8 +14,8 @@ function App() {
         <Route path="dashboard" element={<Dashboard />}>
           <Route path="" element={<DashboardIndex />} />
           <Route path="pesanan-pelanggan" element={<PesananPelanggan />} />
-          <Route path="pesanan-pelanggan/:id" element={<DetailPesanan />} />
           <Route path="riwayat-pesanan" element={<RiwayatPesanan />} />
+          <Route path="pesanan-pelanggan/:id" element={<DetailPesanan />} />
         </Route>
       </Routes>
     </Router>
