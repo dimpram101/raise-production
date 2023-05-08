@@ -47,8 +47,8 @@ export const getProjectGraphic = async (req, res) => {
         const allGraphic = await ProjectGraphics.find();
         return res.status(200).json({
             status: "SUCCESS",
-            msg: "Berhasil mendapat permintaan projek graphic",  
-            payload: allGraphic      
+            msg: "Berhasil mendapat permintaan projek graphic",
+            payload: allGraphic
         })
     } catch (error) {
         return res.status(400).json({
@@ -62,10 +62,10 @@ export const getProjectGraphic = async (req, res) => {
 export const getProjectGraphicByID = async (req, res) => {
     const { id } = req.params;
     try {
-        const idGraphic = await ProjectGraphics.findOne({_id: id});
+        const idGraphic = await ProjectGraphics.findOne({ _id: id });
         return res.status(200).json({
             status: "SUCCESS",
-            msg: "Berhasil mendapat permintaan projek graphic berdasar id",        
+            msg: "Berhasil mendapat permintaan projek graphic berdasar id",
             payload: idGraphic
         })
     } catch (error) {
@@ -79,7 +79,7 @@ export const getProjectGraphicByID = async (req, res) => {
 
 export const getProjectGraphicByUserID = async (req, res) => {
     try {
-        const userGraphic = await ProjectGraphics.find({userId: req.userData._id});
+        const userGraphic = await ProjectGraphics.find({ userId: req.userData._id });
         return res.status(200).json({
             status: "SUCCESS",
             msg: "Berhasil mendapat permintaan projek graphic berdasar id",
@@ -96,13 +96,13 @@ export const getProjectGraphicByUserID = async (req, res) => {
 
 export const updateProjectGraphic = async (req, res) => {
     const { id } = req.params;
-    
+
     const {
         newStatus
     } = req.body
-    
+
     try {
-        const idGraphic = await ProjectGraphics.findOne({_id: id});
+        const idGraphic = await ProjectGraphics.findOne({ _id: id });
         idGraphic.status.push({
             ...newStatus,
             tanggalUpdate: Date.now()
@@ -114,7 +114,7 @@ export const updateProjectGraphic = async (req, res) => {
             msg: "Berhasil update permintaan projek graphic berdasar id",
             payload: idGraphic
         })
-    } catch (error){
+    } catch (error) {
         console.log(error);
         return res.status(400).json({
             status: "ERROR",
