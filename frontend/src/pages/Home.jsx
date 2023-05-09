@@ -1,13 +1,40 @@
-import Navbar from "../Components/Landing_page/Navbar";
+import Navbar from "../Components/Navbar";
 import ServiceCard from "../Components/Landing_page/ServiceCard";
 import Footer from "../Components/Landing_page/Footer";
+import DropDown from "../Components/DropDown";
+import  { useRef, useState } from "react";
 
 const Home = () => {
+  const linkRefAbout = useRef(null);
+  const linkRefService = useRef(null);
+  const linkRefContact = useRef(null);
+
+  const [getDropdown, setDropdown] = useState("hidden");
+
+  const goto = (ref) => {
+    scrollTo({
+      top: ref.offsetTop,
+      lef: 0,
+      behavior:'smooth'
+    })
+  }
+
+  const DropdownShowUp = () => {
+    setDropdown("");
+  };
+
+  const DropdownHidden = () => {
+    setDropdown("hidden");
+  }
 
   return(
     <>
-      <div className="bg-[#073054] h-full">
-        <Navbar />
+      <div className="bg-[#073054] h-full static">
+        <Navbar pushButtonAboutUs={() => goto(linkRefAbout.current)} pushButtonService={() => goto(linkRefService.current)} pushButtonContact={() => goto(linkRefContact.current)} DropdownShowUp={() => DropdownShowUp()} DropdownHidden={() => DropdownHidden()} />
+
+        <div className="absolute mt-[83px] ml-[1410px]">
+          <DropDown Nohidden={getDropdown} DropdownShowUp={() => DropdownShowUp()} DropdownHidden={() => DropdownHidden()} />
+        </div>
 
         <div className="pt-72 flex flex-col font-poppins items-center">
           <div className="text-[72px] text-white font-[900] flex flex-col items-center">
@@ -19,8 +46,8 @@ const Home = () => {
             <p className="text-[#ECB365]">Menghadirkan Jasa Layanan Untuk Anda</p>
           </div>
 
-          <div className="pt-10 ">
-            <button type="button" className="text-white bg-[#ECB365] hover:bg-[#e19f42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-[16px] px-2 py-2 text-center font-poppins mr-3 md:mr-0 ">GET STARTED</button>
+          <div className="pt-10 h-96 ">
+            <button type="button" className="text-white bg-[#ECB365]  hover:bg-[#e19f42] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-[16px] px-2 py-2 text-center font-poppins mr-3 md:mr-0 ">GET STARTED</button>
 
             <button type="button" className="ml-6 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-[#073054] rounded-lg border hover:border-[#ECB365] border-white hover:text-[#ECB365]">
               <div className="flex">
@@ -28,17 +55,22 @@ const Home = () => {
                   Lihat Selengkapnya
                 </div>
 
-                <svg aria-hidden="true" className="pl-3 w-10 h-5 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                <svg aria-hidden="true" className="pl-3 w-10 h-5 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
               
               </div>
             </button>
 
           </div>
-
-          <div className="text-[72px] mt-96 text-white font-[900]">
-            <h1>Tentang Kami</h1>
+       
+          <div ref={linkRefAbout}/>
+          <div  className="text-[72px] mt-[100px] text-white font-[900]">
+          
+            <h1 >Tentang Kami</h1>
+            
           </div>
+          
 
+          
           <div className="mt-6 text-xl text-[#ECB365]">
             <p className="text-center">Kami adalah tim profesional yang berbakat dan berpengalaman di bidang <br/> kami masing-masing, dan kami bersatu untuk menciptakan sesuatu yang <br/>luar biasa.</p>
           </div>
@@ -62,14 +94,18 @@ const Home = () => {
                 <p className="text-justify text-xl text-white pt-3">Salah satu keunggulan kami adalah harga yang murah dan terjangkau. Kami memahami bahwa harga merupakan salah satu faktor yang sangat penting bagi pelanggan dalam memilih produk atau layanan. Oleh karena itu, kami selalu berusaha untuk menawarkan harga yang sesuai dengan anggaran pelanggan, tanpa mengorbankan kualitas atau fitur dari produk atau layanan kami</p>
             </div>
 
-            <div className="w-[650px]">
+            <div className="w-[650px] ">
                 <h1 className="text-2xl text-[#ECB365]" >Kualitas</h1>
                 <p className="text-justify text-xl text-white pt-3">Kualitas adalah salah satu fokus utama kami. Kami menyadari bahwa pelanggan kami membutuhkan produk dan layanan yang andal dan berkualitas, dan kami berusaha untuk memenuhi ekspektasi tersebut dengan memberikan produk dan layanan yang terbaik.</p>
               </div>
           </div>
 
+          <div className="h-96">
 
-          <div className="text-[72px] mt-60 text-white font-[900]">
+          </div>
+
+          <div ref={linkRefService}/>
+          <div  className="text-[72px] mt-[150px] text-white font-[900]">
             <h1>Layanan Kami</h1>
           </div>
 
@@ -123,7 +159,7 @@ const Home = () => {
           </div>
 
         </div>
-
+        <div ref={linkRefContact}/>
         <div className="mt-80">
           <Footer />
         </div>
