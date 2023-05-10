@@ -74,6 +74,7 @@ export const login = async (req, res) => {
 
   const accessToken = jwt.sign({
     _id: user._id,
+    nama: user.nama,
     role: user.role
   }, process.env.SECRET_KEY, {
     expiresIn: '30m',
@@ -81,6 +82,7 @@ export const login = async (req, res) => {
 
   const refreshToken = jwt.sign({
     _id: user._id,
+    nama: user.nama,
     role: user.role
   }, process.env.SECRET_KEY, {
     expiresIn: '3d',
@@ -91,15 +93,15 @@ export const login = async (req, res) => {
 
   res.cookie('accessToken', accessToken, {
     httpOnly: true,
-    sameSite: "none",
-    secure: true,
-    maxAge: 15 * 60 * 1000,
+    // sameSite: "none",
+    // secure: true,
+    maxAge: 1 * 24 * 60 * 60 * 1000,
   });
 
   res.cookie('refreshToken', refreshToken, {
     httpOnly: true,
-    secure: true,
-    sameSite: "none",
+    // secure: true,
+    // sameSite: "none",
     maxAge: 3 * 24 * 60 * 60 * 1000,
   });
 
@@ -107,7 +109,12 @@ export const login = async (req, res) => {
     status: "OK",
     msg: "Berhasil Login",
     payload: {
-      accessToken
+      accessToken,
+      user: {
+        id: user.id,
+        nama: user.nama,
+        role: user.role
+      }
     }
   })
 }
@@ -126,4 +133,8 @@ export const getUserData = async (req, res) => {
   } catch (error) {
 
   }
+}
+
+export const getDecodedToken = async (req, res) => {
+  return res.status(200).json({ payload: req.userData });
 }

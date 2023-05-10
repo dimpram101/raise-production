@@ -1,32 +1,23 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../api/api";
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
+  
   const onSubmitHandler = () => {
-    axios
+    
+    api
       .post("http://localhost:5000/user/login", {
         email,
         password,
-      }, {
-        withCredentials: true,
-        credentials: "include"
       })
       .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  const getData = () => {
-    axios
-      .get("http://localhost:5000/user/data", {
-        withCredentials: true,
-        credentials: "include"
-      })
-      .then((response) => {
-        console.log(response);
+        localStorage.setItem("accessToken", response.data.payload.accessToken);
+        navigate("/");
+        navigate(0);
       })
       .catch((err) => console.log(err));
   };
@@ -101,7 +92,6 @@ const Login = () => {
                   type="button"
                   id="daftar_button"
                   className="text-white bg-[#ECB365] hover:bg-[#e19f42] h-[48px] w-[500px] rounded"
-                  onClick={getData}
                 >
                   DAFTAR
                 </button>
