@@ -1,6 +1,14 @@
+import { useEffect, useState } from "react";
 import PesananCard from "../../../Components/admin/PesananCard";
+import api from "../../../api/api";
 
 const PesananPelanggan = () => {
+  const [isVideo, setIsVideo] = useState(true);
+
+  useEffect(() => {
+    api.get("/user/all-projects").then((res) => console.log(res)).catch(err => console.error(err));  
+  })
+
   return (
     <div>
       <div className="bg-[#073054] relative w-auto h-full flex py-[49px] justify-center">

@@ -143,13 +143,22 @@ export const getDecodedToken = async (req, res) => {
 
 export const getAllProjects = async (req, res) => {
   try {
-    const video = await ProjectVideos.find({
-      userId: req.userData._id
-    });
+    let video;
+    let graphic;
 
-    const graphic = await ProjectGraphics.find({
-      userId: req.userData._id
-    });
+    if (req.userData.role === "user") {
+      video = await ProjectVideos.find({
+        userId: req.userData._id
+      });
+
+      graphic = await ProjectGraphics.find({
+        userId: req.userData._id
+      });
+    }
+    else if (req.userData.role === "admin") {
+      video = await ProjectVideos.find();
+      graphic = await ProjectGraphics.find();
+    }
 
     return res.status(200).json({
       video,
