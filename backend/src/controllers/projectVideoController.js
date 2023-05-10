@@ -7,17 +7,19 @@ export const createProjectVideo = async (req, res) => {
     const {
         kategori,
         deskripsi,
+        kustom,
         deadline,
-        link_komponen,
+        link_referensi
     } = req.body;
-
+    console.log(kustom)
     try {
         const newProjectVideo = await ProjectVideos.create({
             userId: req.userData._id,
             kategori,
             deskripsi,
+            kustom,
             deadline,
-            link_komponen,
+            link_referensi
         });
 
         return res.status(201).json({

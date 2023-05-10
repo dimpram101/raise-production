@@ -11,10 +11,6 @@ export const verifyToken = (req, res, next) => {
     req.userData = decoded;
     next();
   } catch (error) {
-    if (error instanceof jwt.TokenExpiredError) {
-      verifyRefreshToken(next);
-    }
-
     return res.status(403).json({ status: "ERROR", msg: "Token tidak valid!" })
   }
 }
