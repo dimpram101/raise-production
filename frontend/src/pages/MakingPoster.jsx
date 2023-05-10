@@ -3,7 +3,17 @@ import { useState } from "react";
 import Calendar from "../Components/Calendar";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../api/api";
+
 const MakingPoster = () => {
+  const [kategori, setKategori] = useState();
+  const [deskripsi, setDeskripsi] = useState();
+  const [genre, setGenre] = useState();
+  const [ukuran, setUkuran] = useState();
+  const [colorPallete, setColorPallete] = useState();
+  const [linkReferensi, setLinkReferensi] = useState();
+  const [deadline, setDeadline] = useState(new Date());
+  const [linkKomponen, setLinkKomponen] = useState();
   const [lotsOfPicture, setLotOfPicture] = useState(0);
   const [lotsOfPicturePrice, setLotOfPicturePrice] = useState();
   const navigate = useNavigate();
@@ -13,6 +23,24 @@ const MakingPoster = () => {
       navigate("/login");
     }
   });
+
+  const onSubmitHandle = () => {
+    api
+      .post("/project-graphic/create", {
+        kategori,
+        deskripsi,
+        genre,
+        ukuran,
+        color_pallete: colorPallete,
+        link_referensi: linkReferensi,
+        deadline: deadline,
+        link_komponen: linkKomponen,
+      })
+      .then((res) => {
+        navigate("/");
+      })
+      .catch((err) => console.log(err));
+  }
   
   const handlingPlusLotsOfPicture = () => {
     setLotOfPicture((pref) => pref + 1);
@@ -62,6 +90,8 @@ const MakingPoster = () => {
                 <select
                   id="kategori"
                   className="bg-[#04293A] border border-[#ECB365] text-white  text-sm rounded focus:ring-[#ECB365] focus:border-[#ECB365] block w-full p-2.5 "
+                  value={kategori}
+                  onChange={(e) => setKategori(e.target.value)}
                 >
                   <option>Kategori 1</option>
                   <option>Kategori 2</option>
@@ -81,6 +111,8 @@ const MakingPoster = () => {
                     rows="4"
                     className="bg-[#04293A] border border-[#ECB365] text-white  text-sm rounded focus:ring-[#ECB365] focus:border-[#ECB365] block w-full p-2.5"
                     placeholder="Tuliskan deskripsi yang anda inginkan"
+                    value={deskripsi}
+                    onChange={(e) => setDeskripsi(e.target.value)}
                   ></textarea>
                 </div>
 
@@ -149,6 +181,8 @@ const MakingPoster = () => {
                     id="email"
                     className="bg-[#04293A] border border-[#ECB365] text-white text-sm rounded focus:ring-[#ECB365] focus:border-[#ECB365] block w-full p-2.5"
                     placeholder="Berupa link google drive"
+                    value={linkReferensi}
+                    onChange={(e) => setLinkReferensi(e.target.value)}
                     required
                   />
                 </div>
@@ -158,13 +192,16 @@ const MakingPoster = () => {
                     htmlFor="harga-motion-graphic"
                     className="block mb-2 text-sm  text-[#ECB365] dark:text-white"
                   >
-                    Take Video (Daerah Balikpapan)
+                    Deadline
                   </label>
 
                   <div className="flex justify-between mb-1">
                     <div>
                       {/* <input type="number" id="harga-motion-graphic" value={takeVideoPrice} className="bg-[#04293A] border border-[#ECB365] text-white text-sm rounded  block w-[410px] p-2.5" placeholder="" disabled /> */}
-                      <Calendar />
+                      <Calendar 
+                        date={deadline}
+                        onChange={(date) => setDeadline(date)}
+                      />
                     </div>
 
                     <div className="flex items-center mb-4 mt-2 mr-10 ">
@@ -189,6 +226,7 @@ const MakingPoster = () => {
                     <button
                       type="button"
                       className="text-white bg-[#ECB365] hover:bg-[#e19f42] h-[48px] w-full rounded"
+                      onClick={onSubmitHandle}
                     >
                       Tambahkan Pesanan
                     </button>
