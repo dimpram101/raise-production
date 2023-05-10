@@ -1,9 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 const ServiceCard = () => {
+  const navigate = useNavigate();
+
   return(
     <>
       <div className="bg-[#04293A] text-[#04293A] w-[847px] h-[376px] ">
         <div className="grid grid-cols-3 p-[24px] gap-[32px]">
-          <button type="button" className="bg-[#ECB365] w-[245px] h-[328px]">
+          <button type="button" onClick={() => navigate('/video-editing')} className="bg-[#ECB365] w-[245px] h-[328px]">
             <div className="hover:scale-125  duration-300">
               <div className="py-[99px]">
                 <div className="px-[80px]">
@@ -18,7 +22,7 @@ const ServiceCard = () => {
             </div>
           </button>
 
-          <button className = "bg-[#ECB365] w-[245px] h-[328px]">
+          <button onClick={() => navigate('/making-poster')} className = "bg-[#ECB365] w-[245px] h-[328px]">
             <div className="hover:scale-125  duration-300">
               <div className="py-[99px]">
                 <div className="px-[80px]">
@@ -31,7 +35,7 @@ const ServiceCard = () => {
             </div>
           </button>
 
-          <button className="bg-[#ECB365] w-[245px] h-[328px]">
+          <button onClick={() => navigate('/making-logo')} className="bg-[#ECB365] w-[245px] h-[328px]">
             <div className="hover:scale-125  duration-300">
               <div className="py-[99px]">
                 <div className="px-[80px]">

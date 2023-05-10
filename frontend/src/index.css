@@ -7,4 +7,7 @@
  .nav {
   @apply block py-2 pl-3 pr-4 text-[#bf8c43] text-[16px] rounded hover:text-[#ECB365] font-poppins md:hover:bg-transparent md:p-0  relative transition-all before:duration-150 before:content-[''] before:absolute before:bottom-[-5px] before:left-0 before:w-0 before:h-[1px] before:bg-[#ECB365] hover:before:w-full
  }
+
+
 }
+
