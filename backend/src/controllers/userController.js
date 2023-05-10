@@ -2,6 +2,8 @@ import Users from "../models/Users.js";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
+import ProjectVideos from "../models/ProjectVideos.js";
+import ProjectGraphics from "../models/ProjectGraphics.js"
 dotenv.config();
 
 const saltRound = 10;
@@ -137,4 +139,26 @@ export const getUserData = async (req, res) => {
 
 export const getDecodedToken = async (req, res) => {
   return res.status(200).json({ payload: req.userData });
+}
+
+export const getAllProjects = async (req, res) => {
+  try {
+    const video = await ProjectVideos.find({
+      userId: req.userData._id
+    });
+
+    const graphic = await ProjectGraphics.find({
+      userId: req.userData._id
+    });
+
+    return res.status(200).json({
+      video,
+      graphic
+    });
+  } catch (err) {
+    return res.status(400).json({
+      status: "ERROR",
+      err
+    })
+  }
 }
