@@ -8,12 +8,24 @@ import projectGraphicRoute from "./routes/projectGraphicRoutes.js";
 import cors from "cors";
 
 const app = express();
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: ["http://http://127.0.0.1:5173"],
+  AccessControlAllowOrigin: "*",
+  origin: ["http://127.0.0.1:5173"],
+  credentials: true,
 }));
+app.use(function (req, res, next) {
+  res.header('Content-Type', 'application/json;charset=UTF-8')
+  res.header('Access-Control-Allow-Credentials', true)
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  )
+  res.header('Access-Control-Allow-Credentials', true)
+  next()
+})
 
 app.get('/', (req, res) => {
   res.send("Hello");

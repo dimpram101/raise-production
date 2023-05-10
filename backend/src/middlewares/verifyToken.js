@@ -3,6 +3,7 @@ import Users from "../models/Users.js";
 
 export const verifyToken = (req, res, next) => {
   const token = req.cookies.accessToken;
+  console.log("AWDAWDWADW", token)
   if (!token) return res.status(401).json({ status: "ERROR", msg: "Tidak terautentikasi" });
 
   try {

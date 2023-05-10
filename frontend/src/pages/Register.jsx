@@ -26,14 +26,20 @@ const Register = () => {
 
   const onSubmitHandler = () => {
     setLoading(true);
-    axios.post("http://192.168.1.1", {
-      name,
+    axios.post("http://localhost:5000/user/register", {
+      nama: name,
       email,
-      phone,
+      noHP: phone,
       password,
+      confirmPassword: verifPassword,
     })
-      .then(() => { })
-      .catch((error) => { setError("Gagal register") })
+      .then((response) => { 
+        console.log(response);
+      })
+      .catch((error) => { 
+        console.log(error);
+        setError("Gagal register")
+       })
       .finally(setLoading(false)) 
   }
 

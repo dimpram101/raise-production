@@ -10,7 +10,6 @@ const genSalt = await bcrypt.genSalt(saltRound);
 export const register = async (req, res) => {
   const {
     nama,
-    username,
     email,
     noHP,
     password,
@@ -29,7 +28,6 @@ export const register = async (req, res) => {
 
     const newUser = await Users.create({
       nama,
-      username,
       email,
       noHP,
       password: hashPassword,
@@ -42,6 +40,7 @@ export const register = async (req, res) => {
       payload: newUser
     })
   } catch (error) {
+    console.log(error)
     return res.status(400).json({
       status: "ERROR",
       msg: "Gagal membuat akun",
@@ -92,13 +91,15 @@ export const login = async (req, res) => {
 
   res.cookie('accessToken', accessToken, {
     httpOnly: true,
-    // secure: true,
+    sameSite: "none",
+    secure: true,
     maxAge: 15 * 60 * 1000,
   });
 
   res.cookie('refreshToken', refreshToken, {
     httpOnly: true,
-    // secure: true,
+    secure: true,
+    sameSite: "none",
     maxAge: 3 * 24 * 60 * 60 * 1000,
   });
 
@@ -123,6 +124,6 @@ export const getUserData = async (req, res) => {
       payload: user
     })
   } catch (error) {
-    
+
   }
 }
