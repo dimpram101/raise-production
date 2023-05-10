@@ -8,12 +8,8 @@ import api from "../api/api";
 const MakingPoster = () => {
   const [kategori, setKategori] = useState();
   const [deskripsi, setDeskripsi] = useState();
-  const [genre, setGenre] = useState();
-  const [ukuran, setUkuran] = useState();
-  const [colorPallete, setColorPallete] = useState();
   const [linkReferensi, setLinkReferensi] = useState();
   const [deadline, setDeadline] = useState(new Date());
-  const [linkKomponen, setLinkKomponen] = useState();
   const [lotsOfPicture, setLotOfPicture] = useState(0);
   const [lotsOfPicturePrice, setLotOfPicturePrice] = useState();
   const navigate = useNavigate();
@@ -29,12 +25,8 @@ const MakingPoster = () => {
       .post("/project-graphic/create", {
         kategori,
         deskripsi,
-        genre,
-        ukuran,
-        color_pallete: colorPallete,
-        link_referensi: linkReferensi,
+        referensi: linkReferensi,
         deadline: deadline,
-        link_komponen: linkKomponen,
       })
       .then((res) => {
         navigate("/");
