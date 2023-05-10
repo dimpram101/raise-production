@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Home from "./Home";
 import VideoEditing from "./VideoEditing";
-import MakingLogo from "./makingLogo";
+import MakingLogo from "./MakingLogo";
 import MakingPoster from "./MakingPoster";
 import MyOrder from "./MyOrder";
 

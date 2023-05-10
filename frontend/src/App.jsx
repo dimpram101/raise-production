@@ -21,7 +21,6 @@ function App() {
   const token = localStorage.getItem("accessToken")
 
   useEffect(() => {
-    console.log(token)
     if (token) {
       getDecodedToken().then((res) => {
         setAuth(res);

@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import api from "../api/api";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  
+  const { auth } = useContext(AuthContext);
+
+  if (auth) {
+    navigate("/");
+  }
   const onSubmitHandler = () => {
-    
     api
       .post("http://localhost:5000/user/login", {
         email,

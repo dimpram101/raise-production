@@ -2,6 +2,8 @@
 import { useState } from "react";
 import Navbar from "../Components/Navbar";
 import Calendar from "../Components/Calendar";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const VideoEditing = () => {
@@ -10,6 +12,7 @@ const VideoEditing = () => {
   const [takeVideo, setTakeVideo] = useState(0);
   const [takeVideoPrice, setTakeVideoPrice] = useState();
   const [date, setDate] = useState(new Date());
+  const navigate = useNavigate();
 
   const handlingPlusMotionGraphic = () => {
     setMotionGraphicFrame((pref) => pref + 1 )
@@ -28,7 +31,7 @@ const VideoEditing = () => {
       setMotionGraphicFramePrice(() => (
         motionGraphicFramePrice - 2500
       ));
-    };
+    }
   };
 
   const handlingPlusTakeVideo = () => {
@@ -50,6 +53,12 @@ const VideoEditing = () => {
       ));
     }
   };
+
+  useEffect(() => {
+    if (!localStorage.getItem("accessToken")) {
+      navigate("/login")
+    }
+  })
 
   return (
     <>
