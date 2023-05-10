@@ -5,24 +5,33 @@ const statusSchema = new Schema({
   tanggalUpdate: Schema.Types.Date
 }, {_id: false});
 
+const customizeSchema = new Schema({
+  jenis: Schema.Types.String,
+  jumlah: Schema.Types.String,
+  harga: Schema.Types.String,
+}, {_id: false})
+
 const projectSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
     required: true,
   },
+  kategori: {
+    type: Schema.Types.String,
+  },
   deskripsi: {
     type: String,
     required: true,
   },
-  jumlah: Schema.Types.Number,
-  kategori: {
-    type: Schema.Types.String,
-  },
+  kustom: [customizeSchema],
   deadline: {
     type: Schema.Types.Date,
     required: true
   },
   link_komponen: {
+    type: String
+  },
+  link_referensi: {
     type: String
   },
   status: [statusSchema],

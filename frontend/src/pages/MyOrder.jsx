@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../api/api";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 const MyOrder = () => {
   const [videos, setVideos] = useState([]);
@@ -103,8 +104,8 @@ const MyOrder = () => {
                   </div>
                 </div> */}
 
-                {(videos.length > 0 &&
-                  isVideo) &&
+                {videos.length > 0 &&
+                  isVideo &&
                   videos.map((video, index) => (
                     <div
                       key={video._id}
@@ -129,12 +130,15 @@ const MyOrder = () => {
                       <div className="flex justify-between pt-3">
                         <div>
                           <h1>
-                            Deadline : {moment(video.deadline).format("YYYY-MM-DD")}
+                            Deadline :{" "}
+                            {moment(video.deadline).format("YYYY-MM-DD")}
                           </h1>
                         </div>
 
                         <div>
-                          <h1 className="text-white">Lihat Selengkapnya</h1>
+                          <Link to={"/myorder/" + video._id}>
+                            <h1 className="text-white">Lihat Selengkapnya</h1>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -161,12 +165,11 @@ const MyOrder = () => {
 
                       <div className="flex justify-between pt-3">
                         <div>
-                          <h1>
-                            Deadline : {graphic.deadline}
-                          </h1>
+                          <h1>Deadline : {graphic.deadline}</h1>
                         </div>
 
                         <div>
+                          {/* <Link to={"/myoder/"+} */}
                           <h1 className="text-white">Lihat Selengkapnya</h1>
                         </div>
                       </div>

@@ -5,6 +5,7 @@ import VideoEditing from "./VideoEditing";
 import MakingLogo from "./MakingLogo";
 import MakingPoster from "./MakingPoster";
 import MyOrder from "./MyOrder";
+import MyOrderDetail from "./MyOrderDetail";
 
 const CustomerPages = () => {
 
@@ -18,6 +19,7 @@ const CustomerPages = () => {
           <Route path="/making-logo" element={<MakingLogo />}></Route>
           <Route path="/making-poster" element={<MakingPoster />}></Route>
           <Route path="/myorder" element={<MyOrder />}></Route>
+          <Route path="/myorder/:id" element={<MyOrderDetail />}></Route>
         </Routes>
       </div>
     </>

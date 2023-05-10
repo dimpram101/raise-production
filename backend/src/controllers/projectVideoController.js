@@ -11,7 +11,7 @@ export const createProjectVideo = async (req, res) => {
         deadline,
         link_referensi
     } = req.body;
-    console.log(kustom)
+    console.log(kategori, link_referensi)
     try {
         const newProjectVideo = await ProjectVideos.create({
             userId: req.userData._id,
@@ -64,6 +64,7 @@ export const getProjectVideoByID = async (req, res) => {
             payload: idVideo
         })
     } catch (error) {
+        console.log(error);
         return res.status(400).json({
             status: "ERROR",
             msg: "Gagal mendapat permintaan projek video berdasar id",
@@ -93,15 +94,17 @@ export const getProjectVideoByUserID = async (req, res) => {
 export const updateProjectVideo = async (req, res) => {
     const { id } = req.params;
     const {
-        newStatus
+        newStatus,
+        harga
     } = req.body
-    
+
     try {
         const idVideo = await ProjectVideos.findOne({ _id: id });
         idVideo.status.push({
-            ...newStatus,
+            keterangan: newStatus,
             tanggalUpdate: Date.now()
         });
+        if (harga) idVideo.harga = harga;
         await idVideo.save();
 
         return res.status(200).json({

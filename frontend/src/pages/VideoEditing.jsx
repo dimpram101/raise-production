@@ -38,7 +38,7 @@ const VideoEditing = () => {
       });
     }
 
-    console.log(kustom);
+    console.log(kategori, linkReferensi);
 
     api
       .post("/project-video/create", {
