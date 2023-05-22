@@ -9,7 +9,8 @@ export const createProjectVideo = async (req, res) => {
         deskripsi,
         kustom,
         deadline,
-        link_referensi
+        link_referensi,
+        is_paid
     } = req.body;
     console.log(kustom)
     try {
@@ -19,7 +20,8 @@ export const createProjectVideo = async (req, res) => {
             deskripsi,
             kustom,
             deadline,
-            link_referensi
+            link_referensi,
+            is_paid
         });
 
         return res.status(201).json({

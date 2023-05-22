@@ -25,6 +25,10 @@ const projectSchema = new Schema({
   link_komponen: {
     type: String
   },
+  is_paid: {
+    type: Boolean,
+    default: false
+  },
   status: [statusSchema],
   linkHasilAkhir: String,
   harga: String,
