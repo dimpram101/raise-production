@@ -5,6 +5,12 @@ const statusSchema = new Schema({
   tanggalUpdate: Schema.Types.Date
 }, {_id: false});
 
+const paymentSchema = new Schema({
+  isPaid: Boolean,
+  default: false,
+  path: String,
+}, {_id: false});
+
 const projectSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
@@ -25,10 +31,7 @@ const projectSchema = new Schema({
   link_komponen: {
     type: String
   },
-  is_paid: {
-    type: Boolean,
-    default: false
-  },
+  isPaid: [paymentSchema],
   status: [statusSchema],
   linkHasilAkhir: String,
   harga: String,
