@@ -1,14 +1,10 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Calendar from "../Components/Calendar";
 import { useNavigate } from "react-router-dom";
 import api from "../api/api";
 
 const VideoEditing = () => {
-  if (!localStorage.getItem("accessToken")) {
-    navigate("/login");
-  }
-
   const [kategori, setKategori] = useState();
   const [deskripsi, setDeskripsi] = useState();
   const [motionGraphicFrame, setMotionGraphicFrame] = useState(0);
@@ -19,6 +15,12 @@ const VideoEditing = () => {
   const [linkReferensi, setLinkReferensi] = useState();
   const [kustom, setKustom] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!localStorage.getItem("accessToken")) {
+      navigate("/login");
+    }
+  });
 
   const onSubmitHandle = () => {
     console.log(kustom);
@@ -58,7 +60,7 @@ const VideoEditing = () => {
     if (kustom.find((e) => e.jenis === value.jenis)) {
       setKustom(kustom.filter((val) => val.jenis != value.jenis));
     } else {
-      setKustom(old => [...old, value]);
+      setKustom((old) => [...old, value]);
     }
   };
 

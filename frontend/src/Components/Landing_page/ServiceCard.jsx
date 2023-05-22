@@ -22,7 +22,7 @@ const ServiceCard = () => {
             </div>
           </button>
 
-          <button onClick={() => navigate('/making-poster')} className = "bg-[#ECB365] w-[245px] h-[328px]">
+          <button className = "bg-[#ECB365] w-[245px] h-[328px]">
             <div className="hover:scale-125  duration-300">
               <div className="py-[99px]">
                 <div className="px-[80px]">
@@ -30,12 +30,13 @@ const ServiceCard = () => {
                 </div>
                 <div className="pt-3 px-[62px]">
                   <h1 className="mt-2 ">Produksi Poster</h1>
+                  <h1 className="mt-2 font-bold">Coming Soon</h1>
                 </div>
               </div>
             </div>
           </button>
 
-          <button onClick={() => navigate('/making-logo')} className="bg-[#ECB365] w-[245px] h-[328px]">
+          <button className="bg-[#ECB365] w-[245px] h-[328px]">
             <div className="hover:scale-125  duration-300">
               <div className="py-[99px]">
                 <div className="px-[80px]">
@@ -43,6 +44,7 @@ const ServiceCard = () => {
                 </div>
                 <div className="pt-3   px-[63px]">
                   <h1 className="mt-2 ">Produksi Logo</h1>
+                  <h1 className="mt-2 font-bold">Coming Soon</h1>
                 </div>
               </div>
             </div>

@@ -2,10 +2,11 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const DropDown = (props) => {
   const navigate = useNavigate();
-  const { setAuth } = useContext(AuthContext);
+  const { auth, setAuth } = useContext(AuthContext);
 
   return (
     <>
@@ -35,6 +36,11 @@ const DropDown = (props) => {
               Akun Saya
             </a>
           </li>
+          {auth && auth.role === "admin" && (
+            <li>
+              <Link to="/dashboard" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</Link>
+            </li>
+          )}
         </ul>
         <div className="py-2">
           <a
