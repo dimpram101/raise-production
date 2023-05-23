@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import TransderFileModal from "../../../Components/TransferFileModal";
 import api from "../../../api/api";
 import moment from "moment";
 
@@ -9,6 +10,17 @@ const DetailPesanan = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [newStatus, setNewStatus] = useState("");
   const navigate = useNavigate();
+  const [modal, setModal] = useState("hidden");
+  const [proofVerifi, setProofVerifi] = useState("Belum Bayar");
+
+
+  const showModal = () => {
+    setModal("");
+  };
+
+  const hiddingModal = () => {
+    setModal("hidden");
+  };
 
   const onUpdateSubmit = (tolak = false) => {
     if (tolak) {
@@ -48,6 +60,7 @@ const DetailPesanan = () => {
 
   return (
     <div className="p-3 font-poppins">
+      <TransderFileModal behavior={modal} hidding={() => hiddingModal()} />
       <div className="">
         <Link className="text-white" to={"/dashboard/pesanan-pelanggan"}>
           {"< Kembali"}
@@ -141,15 +154,51 @@ const DetailPesanan = () => {
             <div className="flex flex-col gap-5 text-[#ECB365] text-xl">
               <div className="flex flex-row justify-between font-bold">
                 <p>Total Harga</p>
-                <p>
-                  {totalPrice
+                <p className="ml-[500px] mt-2">Rp </p>
+                <input
+                  type="text"
+                  value={totalPrice
                     .toString()
                     .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}
-                </p>
+                  className="border-1  border-[#ECB365] focus:ring-[#ECB365] focus:border-[#ECB365]  text-[#ECB365] rounded-lg  bg-transparent text-lg "
+                />
               </div>
-              {/* <button className="bg-[#ECB365] text-black py-2 rounded-md font-bold text-2xl">
-                AJUKAN HARGA
-              </button> */}
+
+              <div className="flex flex-row mt-6 justify-between font-bold">
+                <div className="flex">
+                  <p>Bukti Transaksi : </p>
+                  <p className="ml-3"> file</p>
+                </div>
+
+                <div>
+                  <button
+                    type="button"
+                    onClick={() => showModal()}
+                    className="text-white p-1 text-sm bg-[#ECB365] hover:bg-[#e19f42] h-[30px] w-40 rounded"
+                  >
+                    Buka File
+                  </button>
+                </div>
+              </div>
+
+              <div className="mt-6">
+
+                <input
+                  id="default-checkbox"
+                  type="checkbox"
+                  value=""
+                  className="w-6 h-6 text-[#ECB365] focus:ring-gray-800 bg-[#04293A] border-gray-300 "
+
+                />
+
+                <label
+                  htmlFor="default-checkbox"
+                  className="font-medium ml-6"
+                >
+                  Verifikasi Bukti
+                </label>
+
+              </div>
             </div>
           </div>
         </div>

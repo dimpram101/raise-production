@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import AuthContext from "./context/AuthContext";
 import getDecodedToken from "./api/getDecodedToken";
 // import AuthContextProvider from "./context/AuthContextProvider";
+import Test from "./pages/test";
 
 function App() {
   const [auth, setAuth] = useState(null);
@@ -35,6 +36,7 @@ function App() {
           <Route path="/*" element={<CustomerPages />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
+          < Route path="/test" element={<Test />}></Route>
           <Route path="dashboard" element={<Dashboard />}>
             <Route path="" element={<DashboardIndex />} />
             <Route path="pesanan-pelanggan" element={<PesananPelanggan />} />

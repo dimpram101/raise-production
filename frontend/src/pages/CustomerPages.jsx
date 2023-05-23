@@ -6,6 +6,8 @@ import MakingLogo from "./MakingLogo";
 import MakingPoster from "./MakingPoster";
 import MyOrder from "./MyOrder";
 import MyOrderDetail from "./MyOrderDetail";
+import Footer from "../Components/Landing_page/Footer";
+import Profile from "./Profile";
 
 const CustomerPages = () => {
 
@@ -19,8 +21,10 @@ const CustomerPages = () => {
           <Route path="/making-logo" element={<MakingLogo />}></Route>
           <Route path="/making-poster" element={<MakingPoster />}></Route>
           <Route path="/myorder" element={<MyOrder />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
           <Route path="/myorder/:id" element={<MyOrderDetail />}></Route>
         </Routes>
+        <Footer />
       </div>
     </>
   );

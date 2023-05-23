@@ -35,6 +35,13 @@ const PesananCard = ({ video }) => {
                 </p>
                 <p className="flex font-poppins font-normal text-[20px] text-[#ECB365]"></p>
               </div>
+
+              <div className="flex flex-row gap-[8px]">
+                <p className="flex font-poppins font-normal text-[20px] text-[#ffffff]">
+                  {}
+                </p>
+                <p className="flex font-poppins font-normal text-[20px] text-[#ECB365]"></p>
+              </div>
             </div>
 
             <div className="flex flex-col justify-center items-center w-[188px] h-[214px]">
