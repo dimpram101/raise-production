@@ -7,12 +7,8 @@ export const createProjectGraphic = async (req, res) => {
     const {
         kategori,
         deskripsi,
-        genre,
-        ukuran,
-        color_pallete,
         referensi,
         deadline,
-        link_komponen,
     } = req.body;
 
     try {
@@ -20,12 +16,8 @@ export const createProjectGraphic = async (req, res) => {
             userId: req.userData._id,
             kategori,
             deskripsi,
-            genre,
-            ukuran,
-            color_pallete,
             referensi,
             deadline,
-            link_komponen,
         });
 
         return res.status(201).json({
