@@ -118,3 +118,26 @@ export const updateProjectVideo = async (req, res) => {
         })
     }
 }
+
+export const insertPayment = async (req, res) => {
+    const { id } = req.params;
+
+    const file = req.file;
+
+    try {
+        const idVideo = await ProjectVideos.findOne({ _id: id });
+        idVideo.payment = {
+            isPaid: true,
+            path: file.path
+        };
+
+        idVideo.save();
+    }
+    catch (error) {
+        return res.status(400).json({
+            status: "ERROR",
+            msg: "Gagal melakukan pembayaran berdasar id",
+            error
+        })
+    }
+}
