@@ -1,5 +1,6 @@
 // eslint-disable-next-line react/prop-types
-const TransderFileModal = ({behavior, hidding}) => {
+const TransderFileModal = ({behavior, hidding, imgPath}) => {
+  console.log(imgPath.toString().replace("\\", "/"));
   return (
     <>
       <div id="defaultModal" tabIndex="-1" aria-hidden="true" className={` ${behavior} fixed visible bg-black/40 flex items-center flex-row  top-0 left-0 right-0 z-50 h-full p-4 overflow-x-hidden overflow-y-auto md:inset-0  `}>
@@ -19,12 +20,8 @@ const TransderFileModal = ({behavior, hidding}) => {
 
 
             <div className="flex flex-col mt-6 items-center">
-              <img src="./assets/dummy/bukti-transfer.jpg" alt="" />
+              <img src={"http://localhost:5000/"+imgPath} alt="" className="object-contain w-[500px] h-[600px]"/>
             </div>
-         
-          
-         
-        
           </div>
         </div>
       </div>

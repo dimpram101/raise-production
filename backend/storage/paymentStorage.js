@@ -1,4 +1,4 @@
-import { makeDiskStorage, makeStorage } from "../config/multer";
+import { makeDiskStorage, makeStorage } from "../config/multer.js";
 
 const storage = makeDiskStorage('./public/payment');
 const paymentStorage = makeStorage(storage);

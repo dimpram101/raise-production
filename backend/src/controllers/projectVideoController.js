@@ -95,7 +95,8 @@ export const updateProjectVideo = async (req, res) => {
     const { id } = req.params;
     const {
         newStatus,
-        harga
+        harga,
+        linkAkhir,
     } = req.body
 
     try {
@@ -105,6 +106,7 @@ export const updateProjectVideo = async (req, res) => {
             tanggalUpdate: Date.now()
         });
         if (harga) idVideo.harga = harga;
+        if (linkAkhir) idVideo.linkHasilAkhir = linkAkhir;
         await idVideo.save();
 
         return res.status(200).json({
@@ -124,19 +126,30 @@ export const updateProjectVideo = async (req, res) => {
 
 export const insertPayment = async (req, res) => {
     const { id } = req.params;
-
     const file = req.file;
+    const { status } = req.body;
+
+    const path = file.path.split("public\\")[1];
 
     try {
         const idVideo = await ProjectVideos.findOne({ _id: id });
+        console.log(idVideo);
         idVideo.payment = {
             isPaid: true,
-            path: file.path
+            path
         };
+        idVideo.status.push({
+            keterangan: status
+        });
 
         idVideo.save();
+        return res.status(200).json({
+            status: "SUCCESS",
+            msg: "Berhasil melakukan pembayaran"
+        })
     }
     catch (error) {
+        console.log(error);
         return res.status(400).json({
             status: "ERROR",
             msg: "Gagal melakukan pembayaran berdasar id",

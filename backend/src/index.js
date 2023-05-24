@@ -16,6 +16,7 @@ app.use(cors({
   origin: ["http://127.0.0.1:5173"],
   credentials: true,
 }));
+app.use(express.static('public'));
 app.use(function (req, res, next) {
   res.header('Content-Type', 'application/json;charset=UTF-8')
   res.header('Access-Control-Allow-Credentials', true)

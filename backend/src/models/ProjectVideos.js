@@ -5,6 +5,12 @@ const statusSchema = new Schema({
   tanggalUpdate: Schema.Types.Date
 }, {_id: false});
 
+const customizeSchema = new Schema({
+  jenis: Schema.Types.String,
+  jumlah: Schema.Types.String,
+  harga: Schema.Types.String,
+}, {_id: false})
+
 const paymentSchema = new Schema({
   isPaid: {type: Schema.Types.Boolean, default: false},
   path: {type: Schema.Types.String, default: ""},
@@ -29,6 +35,9 @@ const projectSchema = new Schema({
   },
   link_komponen: {
     type: Schema.Types.String
+  },
+  link_referensi: {
+    type: String
   },
   payment: {type: paymentSchema, default: {isPaid: false, path: ""}},
   status: [statusSchema],
