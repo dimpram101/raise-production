@@ -31,6 +31,8 @@ const DropDown = (props) => {
           </li>
           <li>
             <a
+              href="/profile"
+              onClick={() => navigate("/profile")}
               className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
             >
               Akun Saya

@@ -2,7 +2,10 @@ import Navbar from "../Components/Navbar";
 import ServiceCard from "../Components/Landing_page/ServiceCard";
 import Footer from "../Components/Landing_page/Footer";
 import DropDown from "../Components/DropDown";
-import  { useRef, useState } from "react";
+import GaleryCard from "../Components/Landing_page/GaleryCard";
+import AOS from "aos";
+import 'aos/dist/aos.css'
+import  { useRef, useState, useEffect } from "react";
 
 const Home = () => {
   const linkRefAbout = useRef(null);
@@ -17,7 +20,11 @@ const Home = () => {
       lef: 0,
       behavior:'smooth'
     })
-  }
+  };
+
+  // useEffect(() => {
+  //   AOS.init({duration: 2000})
+  // }, []);
 
   const DropdownShowUp = () => {
     setDropdown("");
@@ -115,6 +122,22 @@ const Home = () => {
 
           <div className="mt-20">
             <ServiceCard />  
+          </div>
+
+          <div className="text-[72px] mt-80 text-white font-[900]">
+            <h1>Galeri Kami</h1>
+          </div>
+
+          <div className="mt-6 text-xl text-[#ECB365]">
+            <p className="text-center">Dalam galeri kami, pelanggan dapat memlihat hasil apa saja yang  pernah kami <br /> buat untuk pelanggan-pelanggan sebelumnya serta visualisai video dengan <br />kualitas yang terbaik.</p>
+          </div>
+
+          <div className="mt-20 inline-grid grid-cols-2 gap-10">
+            <GaleryCard src="./assets/dummy/dokumenter.jpg" title="Film Dokumentasi Alam Semesta" />
+            <GaleryCard src="./assets/dummy/pernikahan.jpg" title="Pernikahan Cicip dan Cocop" />
+            <GaleryCard src="./assets/dummy/review.png" title="Nintendo Switch Unboxing & Review" />
+            <GaleryCard src="./assets/dummy/video-klip.png" title="Video klip lagu " />
+            
           </div>
           
           <div className="text-[72px] mt-80 text-white font-[900]">

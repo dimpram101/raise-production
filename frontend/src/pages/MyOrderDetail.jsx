@@ -5,6 +5,7 @@ import moment from "moment";
 
 const MyOrderDetail = () => {
   const [detail, setDetail] = useState(null);
+  const [tranferFile, setTransferFile] = useState();
   const { id } = useParams();
 
   useEffect(() => {
@@ -84,13 +85,23 @@ const MyOrderDetail = () => {
               </div>
             </div>
             <div className="flex flex-col gap-5 text-[#ECB365] text-xl">
+              <label className="block mb-2 text-sm font-medium dark:text-white" htmlFor="user_avatar">Silahkan Input Bukti Transfer</label>
+              <input className="block w-full text-sm  border rounded-lg cursor-pointer border-[#ECB365] text-[#ECB365]  bg-transparent" aria-describedby="user_avatar_help" id="user_avatar" type="file" value={tranferFile} />
+              <div className="mt-1 text-sm ">File berupa .jpg dan .png</div>
+
               <div className="flex flex-row justify-between font-bold">
                 <p>Total Harga</p>
                 <p>{detail.harga && (detail.harga).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}</p>
               </div>
-              {/* <button className="bg-[#ECB365] text-black py-2 rounded-md font-bold text-2xl">
-                AJUKAN HARGA
-              </button> */}
+              <div className="pt-6">
+                <button
+                  type="button"
+                  className="text-white bg-[#ECB365] hover:bg-[#e19f42] h-[48px] w-full rounded"
+                  onClick=""
+                >
+                  Kirim Bukti
+                </button>
+              </div>
             </div>
           </div>
         </div>
