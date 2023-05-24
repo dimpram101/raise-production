@@ -5,7 +5,7 @@ import DropDown from "../Components/DropDown";
 import GaleryCard from "../Components/Landing_page/GaleryCard";
 import AOS from "aos";
 import 'aos/dist/aos.css'
-import  { useRef, useState, useEffect } from "react";
+import  { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -141,9 +141,9 @@ const Home = () => {
           </div>
 
           <div className="justify-item-center bg-blue-800 px-2 mt-5 rounded-lg hover:bg-blue-500">
-              <Link to="/gallery" className="text-center text-white">
+              <a href="/gallery" className="text-center text-white">
                 Tampilkan lebih banyak
-              </Link>
+              </a>
             </div>
           
           <div className="text-[72px] mt-80 text-white font-[900]">

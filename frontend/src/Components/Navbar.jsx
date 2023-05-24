@@ -2,7 +2,7 @@
 
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
   const { auth } = useContext(AuthContext);
@@ -13,7 +13,11 @@ const Navbar = (props) => {
       <nav className="bg-[#073054]  dark:bg-gray-900 w-full shadow-md fixed z-20 top-0 left-0 ">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-64 ">
           <a href="" className="flex items-center">
-            <img src="./assets/logo/Logo RP.png" className="h-8 mr-3" alt="Flowbite Logo"/>
+            <img
+              src="./assets/logo/Logo RP.png"
+              className="h-8 mr-3"
+              alt="Flowbite Logo"
+            />
             <h1 className=" text-[32px] font-semibold text-[#ECB365] font-poppins">
               Raise{" "}
               <span className="text-white font-thin text-[24px]">
@@ -71,7 +75,10 @@ const Navbar = (props) => {
                       </div>
                     </li>
                     <li className="mt-2.5">
-                      <p className="font-poppins text-[#ECB365] "> {auth.nama} </p>
+                      <p className="font-poppins text-[#ECB365] ">
+                        {" "}
+                        {auth.nama}{" "}
+                      </p>
                     </li>
                   </ul>
                 </a>
@@ -116,6 +123,13 @@ const Navbar = (props) => {
                   >
                     Beranda
                   </a>
+                </button>
+              </li>
+              <li>
+                <button>
+                  <Link to="/gallery" className="nav">
+                    Galeri
+                  </Link>
                 </button>
               </li>
               <li>

@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CustomerPages from "./pages/CustomerPages";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Gallery from "./pages/Gallery";
 import "./App.css";
 import Dashboard from "./pages/admin/Dashboard";
 import PesananPelanggan from "./pages/admin/dashboard/PesananPelanggan";
@@ -19,7 +18,7 @@ import Test from "./pages/test";
 
 function App() {
   const [auth, setAuth] = useState(null);
-  const token = localStorage.getItem("accessToken")
+  const token = localStorage.getItem("accessToken");
 
   useEffect(() => {
     if (token) {
@@ -31,9 +30,6 @@ function App() {
 
   return (
     <Router>
-      <Routes>
-        <Route path="/gallery" element={<Gallery/>}></Route>
-      </Routes>
       <AuthContext.Provider value={{ auth, setAuth }}>
         <Routes>
           <Route path="/*" element={<CustomerPages />}></Route>
@@ -45,7 +41,7 @@ function App() {
             <Route path="pesanan-pelanggan" element={<PesananPelanggan />} />
             <Route path="riwayat-pesanan" element={<RiwayatPesanan />} />
             <Route path="pesanan-pelanggan/:id" element={<DetailPesanan />} />
-          </Route>  
+          </Route>
         </Routes>
       </AuthContext.Provider>
     </Router>
