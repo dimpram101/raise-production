@@ -9,10 +9,9 @@ const DetailPesanan = () => {
   const { id } = useParams();
   const [totalPrice, setTotalPrice] = useState(0);
   const [newStatus, setNewStatus] = useState("");
+  const [linkAkhir, setLinkAkhir] = useState("");
   const navigate = useNavigate();
   const [modal, setModal] = useState("hidden");
-  const [proofVerifi, setProofVerifi] = useState("Belum Bayar");
-
 
   const showModal = () => {
     setModal("");
@@ -28,15 +27,16 @@ const DetailPesanan = () => {
         .put("/project-video/" + id, {
           newStatus: "DITOLAK",
         })
-        .then((res) => navigate(0))
+        .then(() => navigate(0))
         .catch((err) => console.error(err));
     } else {
       api
         .put("/project-video/" + id, {
           newStatus,
-          harga: totalPrice
+          harga: totalPrice,
+          linkAkhir
         })
-        .then((res) => navigate(0))
+        .then(() => navigate(0))
         .catch((err) => console.error(err));
     }
   };
@@ -52,15 +52,19 @@ const DetailPesanan = () => {
         kustom.forEach((val) => {
           currentPrice += parseInt(val.harga);
         });
-
-        setTotalPrice(currentPrice);
+        if (!totalPrice) setTotalPrice(currentPrice);
       })
       .catch((err) => console.error(err));
-  }, [id, setDetail]);
+  }, [id, setDetail, totalPrice]);
 
+  console.log(detail);
   return (
     <div className="p-3 font-poppins">
-      <TransderFileModal behavior={modal} hidding={() => hiddingModal()} />
+      {!detail ? (
+        <TransderFileModal behavior={modal} hidding={() => hiddingModal()} imgPath={""}/>
+      ) : (
+        <TransderFileModal behavior={modal} hidding={() => hiddingModal()} imgPath={detail.payment.path}/>
+      )}
       <div className="">
         <Link className="text-white" to={"/dashboard/pesanan-pelanggan"}>
           {"< Kembali"}
@@ -105,11 +109,24 @@ const DetailPesanan = () => {
               <div className="text-md ">Riwayat Status</div>
               {detail.status &&
                 detail.status.map((status) => (
-                  <div key={status.keterangan} className="flex flex-row justify-between w-1/2">
+                  <div
+                    key={status.keterangan}
+                    className="flex flex-row justify-between w-1/2"
+                  >
                     <p key={status}>{status.keterangan}</p>
-                    <p key={status}>{moment(status.tanggalUpdate).format("YYYY-MM-DD")}</p>
+                    <p key={status}>
+                      {moment(status.tanggalUpdate).format("YYYY-MM-DD")}
+                    </p>
                   </div>
                 ))}
+            </div>
+            <div className="flex flex-col gap-3">
+              <p className="text-2xl text-[#ECB365]">Link Akhir</p>
+              <textarea
+                className="h-16 border-1 border-[#ECB365] text-[#ECB365] rounded-lg cursor-default bg-transparent text-lg"
+                value={detail.linkHasilAkhir || linkAkhir}
+                onChange={e => setLinkAkhir(e.target.value)}
+              ></textarea>
             </div>
             <div className="flex flex-col gap-3">
               <p className="text-2xl text-[#ECB365]">Category</p>
@@ -160,6 +177,7 @@ const DetailPesanan = () => {
                   value={totalPrice
                     .toString()
                     .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}
+                  onChange={(e) => setTotalPrice(e.target.value)}
                   className="border-1  border-[#ECB365] focus:ring-[#ECB365] focus:border-[#ECB365]  text-[#ECB365] rounded-lg  bg-transparent text-lg "
                 />
               </div>
@@ -167,7 +185,7 @@ const DetailPesanan = () => {
               <div className="flex flex-row mt-6 justify-between font-bold">
                 <div className="flex">
                   <p>Bukti Transaksi : </p>
-                  <p className="ml-3"> file</p>
+                  {/* <p className="ml-3"> file</p> */}
                 </div>
 
                 <div>
@@ -182,22 +200,16 @@ const DetailPesanan = () => {
               </div>
 
               <div className="mt-6">
-
                 <input
                   id="default-checkbox"
                   type="checkbox"
                   value=""
                   className="w-6 h-6 text-[#ECB365] focus:ring-gray-800 bg-[#04293A] border-gray-300 "
-
                 />
 
-                <label
-                  htmlFor="default-checkbox"
-                  className="font-medium ml-6"
-                >
+                <label htmlFor="default-checkbox" className="font-medium ml-6">
                   Verifikasi Bukti
                 </label>
-
               </div>
             </div>
           </div>
