@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CustomerPages from "./pages/CustomerPages";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-
+import Gallery from "./pages/Gallery";
 import "./App.css";
 import Dashboard from "./pages/admin/Dashboard";
 import PesananPelanggan from "./pages/admin/dashboard/PesananPelanggan";
@@ -31,18 +31,21 @@ function App() {
 
   return (
     <Router>
+      <Routes>
+        <Route path="/gallery" element={<Gallery/>}></Route>
+      </Routes>
       <AuthContext.Provider value={{ auth, setAuth }}>
         <Routes>
           <Route path="/*" element={<CustomerPages />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
-          < Route path="/test" element={<Test />}></Route>
+          <Route path="/test" element={<Test />}></Route>
           <Route path="dashboard" element={<Dashboard />}>
             <Route path="" element={<DashboardIndex />} />
             <Route path="pesanan-pelanggan" element={<PesananPelanggan />} />
             <Route path="riwayat-pesanan" element={<RiwayatPesanan />} />
             <Route path="pesanan-pelanggan/:id" element={<DetailPesanan />} />
-          </Route>
+          </Route>  
         </Routes>
       </AuthContext.Provider>
     </Router>

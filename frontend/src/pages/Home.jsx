@@ -6,6 +6,7 @@ import GaleryCard from "../Components/Landing_page/GaleryCard";
 import AOS from "aos";
 import 'aos/dist/aos.css'
 import  { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const linkRefAbout = useRef(null);
@@ -133,12 +134,17 @@ const Home = () => {
           </div>
 
           <div className="mt-20 inline-grid grid-cols-2 gap-10">
-            <GaleryCard src="./assets/dummy/dokumenter.jpg" title="Film Dokumentasi Alam Semesta" />
-            <GaleryCard src="./assets/dummy/pernikahan.jpg" title="Pernikahan Cicip dan Cocop" />
-            <GaleryCard src="./assets/dummy/review.png" title="Nintendo Switch Unboxing & Review" />
-            <GaleryCard src="./assets/dummy/video-klip.png" title="Video klip lagu " />
-            
+            <GaleryCard content="https://drive.google.com/file/d/1rf8PJ_n59dTd5gqsoYBkNua4YSKI2bu-/view?usp=share_link" src="./assets/dummy/Video 1.png" title="After Movie Spin Etam 2022" />
+            <GaleryCard content="https://drive.google.com/file/d/1URXO3t-5k_VPeeQ9IhyQSOTKGzubriDw/view?usp=sharing" src="./assets/dummy/Video 21.png" title="Wedding A&R" />
+            <GaleryCard content="https://drive.google.com/file/d/1oqzkiI9Geq7E5mikXjjzzJzRmnIudIvr/view?usp=sharing" src="./assets/dummy/Video 6.png" title="Ghost - Fake Project MV" />
+            <GaleryCard content="https://drive.google.com/file/d/1QKijPTaDb89jdiZfTgb6tgOju70Zs6IC/view?usp=sharing" src="./assets/dummy/Video 4.png" title="Paranoid - Short Mov" />
           </div>
+
+          <div className="justify-item-center bg-blue-800 px-2 mt-5 rounded-lg hover:bg-blue-500">
+              <Link to="/gallery" className="text-center text-white">
+                Tampilkan lebih banyak
+              </Link>
+            </div>
           
           <div className="text-[72px] mt-80 text-white font-[900]">
             <h1>Kontak Kami</h1>
@@ -160,7 +166,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <p className="text-white pt-6">Alessandro Benaya Pinem  +62-8950-1189-6 <br />Ramadhan Djibran Sanjaya +62-1276-3321-93</p>
+              <p className="text-white pt-6">Alessandro Benaya Pinem  +62-8950-1189-6 <br />Ramadhan Djibran Sanjaya +62-821-5066-7710</p>
 
             </div>
 
@@ -184,7 +190,6 @@ const Home = () => {
         </div>
         <div ref={linkRefContact}/>
         <div className="mt-80">
-          <Footer />
         </div>
        
       </div>
