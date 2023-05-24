@@ -13,7 +13,7 @@ const Navbar = (props) => {
       <nav className="bg-[#073054]  dark:bg-gray-900 w-full shadow-md fixed z-20 top-0 left-0 ">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-64 ">
           <a href="" className="flex items-center">
-            {/* <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="Flowbite Logo"/> */}
+            <img src="./assets/logo/Logo RP.png" className="h-8 mr-3" alt="Flowbite Logo"/>
             <h1 className=" text-[32px] font-semibold text-[#ECB365] font-poppins">
               Raise{" "}
               <span className="text-white font-thin text-[24px]">
