@@ -1,5 +1,7 @@
+import mailTransporter from "../../config/mail.js";
 import ProjectVideos from "../models/ProjectVideos.js";
 import dotenv from "dotenv";
+import Users from "../models/Users.js";
 dotenv.config();
 
 // Untuk Video
@@ -92,9 +94,7 @@ export const getProjectVideoByUserID = async (req, res) => {
 
 export const updateProjectVideo = async (req, res) => {
     const { id } = req.params;
-    const {
-        newStatus
-    } = req.body
+    const { newStatus } = req.body
     
     try {
         const idVideo = await ProjectVideos.findOne({ _id: id });
@@ -103,6 +103,14 @@ export const updateProjectVideo = async (req, res) => {
             tanggalUpdate: Date.now()
         });
         await idVideo.save();
+
+        const idUser = await Users.findOne({_id: idVideo.userId});
+        await mailTransporter.sendMail({
+            from: "raiseproduction123@gmail.com",
+            to: idUser.email,
+            subject: `Informasi update project dengan ID ${idVideo.id}`,
+            text: `Project anda sedang ditahap ${newStatus}`
+        })
 
         return res.status(200).json({
             status: "SUCCESS",
