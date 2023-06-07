@@ -1,5 +1,7 @@
+import mailTransporter from "../../config/mail.js";
 import ProjectVideos from "../models/ProjectVideos.js";
 import dotenv from "dotenv";
+import Users from "../models/Users.js";
 dotenv.config();
 
 // Untuk Video
@@ -108,6 +110,14 @@ export const updateProjectVideo = async (req, res) => {
         if (harga) idVideo.harga = harga;
         if (linkAkhir) idVideo.linkHasilAkhir = linkAkhir;
         await idVideo.save();
+
+        const idUser = await Users.findOne({_id: idVideo.userId});
+        await mailTransporter.sendMail({
+            from: "raiseproduction123@gmail.com",
+            to: idUser.email,
+            subject: `Informasi update project dengan ID ${idVideo.id}`,
+            text: `Project anda sedang ditahap ${newStatus}`
+        })
 
         return res.status(200).json({
             status: "SUCCESS",
