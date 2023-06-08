@@ -88,11 +88,16 @@ const MyOrderDetail = () => {
               <label className="block mb-2 text-sm font-medium dark:text-white" htmlFor="user_avatar">Silahkan Input Bukti Transfer</label>
               <input className="block w-full text-sm  border rounded-lg cursor-pointer border-[#ECB365] text-[#ECB365]  bg-transparent" aria-describedby="user_avatar_help" id="user_avatar" type="file" value={tranferFile} />
               <div className="mt-1 text-sm ">File berupa .jpg dan .png</div>
+              <div className="font-bold">
+                <p>Trsnsfer ke rek. 1180212091 bank BNI a.n Ramadhan Djibran Sanjaya</p>
+              </div>
 
               <div className="flex flex-row justify-between font-bold">
                 <p>Total Harga</p>
                 <p>{detail.harga && (detail.harga).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}</p>
               </div>
+
+              
               <div className="pt-6">
                 <button
                   type="button"

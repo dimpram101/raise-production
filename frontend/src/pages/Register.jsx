@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import useInput from "../hooks/useInput";
 import Input from "../Components/Input";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [disable, setDisable] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const [name, onNameChange] = useInput();
   const [email, onEmailChange] = useInput();
@@ -76,9 +78,11 @@ const Register = () => {
                 <div>Loading</div>
               ) : (
                 <button
+                  
                   type="button"
                   className={`text-white ${disable ? "bg-gray-800" : "bg-[#ECB365] hover:bg-[#e19f42]"} h-[48px] w-[500px] rounded`}
                   disabled={disable} onClick={onSubmitHandler}
+                  
                 >
                   DAFTAR
                 </button>

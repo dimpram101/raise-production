@@ -133,10 +133,10 @@ const Home = () => {
           </div>
 
           <div className="mt-20 inline-grid grid-cols-2 gap-10">
-            <GaleryCard src="./assets/dummy/dokumenter.jpg" title="Film Dokumentasi Alam Semesta" />
-            <GaleryCard src="./assets/dummy/pernikahan.jpg" title="Pernikahan Cicip dan Cocop" />
-            <GaleryCard src="./assets/dummy/review.png" title="Nintendo Switch Unboxing & Review" />
-            <GaleryCard src="./assets/dummy/video-klip.png" title="Video klip lagu " />
+            <GaleryCard toContent="" src="./assets/dummy/dokumenter.jpg" title="Film Dokumentasi Alam Semesta" />
+            <GaleryCard toContent="" src="./assets/dummy/pernikahan.jpg" title="Pernikahan Cicip dan Cocop" />
+            <GaleryCard toContent="" src="./assets/dummy/review.png" title="Nintendo Switch Unboxing & Review" />
+            <GaleryCard toContent="" src="./assets/dummy/video-klip.png" title="Video klip lagu " />
             
           </div>
           

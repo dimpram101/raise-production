@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-const GaleryCard = ({src, title}) => {
+const GaleryCard = ({src, title, toContent}) => {
   return (
     <>
       <div className="bg-[#04293A] h-[450px] w-[458px] rounded shadow-lg">
@@ -12,6 +12,7 @@ const GaleryCard = ({src, title}) => {
             <div className="pt-6">
               <button
                 type="button"
+                src={toContent}
                 className="text-white bg-[#ECB365] hover:bg-[#e19f42] focus:ring-4 focus:outline-none focus:ring-[#ECB365] font-medium rounded-md text-[20px] px-2 py-2 text-center font-poppins mr-3 md:mr-0 "
               >
                 View video
