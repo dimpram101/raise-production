@@ -8,9 +8,10 @@ const mailTransporter = nodemailer.createTransport({
   requireTLS: true,
   auth: {
     user: "raiseproduction123@gmail.com",
-    pass: "vkdnlinxrmictrum",
+    pass: process.env.MAIL_PW,
   },
 })
+
 
 // const testlah = async () => {
 //   await mailTransporter.sendMail({
