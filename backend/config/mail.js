@@ -7,7 +7,7 @@ const mailTransporter = nodemailer.createTransport({
   secure: false,
   requireTLS: true,
   auth: {
-    user: "raiseproduction123@gmail.com",
+    user: "raiseproductions23@gmail.com",
     pass: process.env.MAIL_PW,
   },
 })
@@ -15,10 +15,10 @@ const mailTransporter = nodemailer.createTransport({
 
 // const testlah = async () => {
 //   await mailTransporter.sendMail({
-//     from: "raiseproduction123@gmail.com",
-//     to: "11211028@student.itk.ac.id",
+//     from: "raiseproductions23@gmail.com",
+//     to: "",
 //     subject: "Test",
-//     text: "jsdlvusblaurvirublirbuvuliruaeluvabelir"
+//     text: "Ini hanya sebua tes untuk membuktikan jsdlvusblaurvirublirbuvuliruaeluvabelir"
 //   }).then(() => console.log("BErhasil"))
 //   .catch(err => console.log(err));
 // }

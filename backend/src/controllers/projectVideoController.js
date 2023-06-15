@@ -113,7 +113,7 @@ export const updateProjectVideo = async (req, res) => {
 
         const idUser = await Users.findOne({_id: idVideo.userId});
         await mailTransporter.sendMail({
-            from: "raiseproduction123@gmail.com",
+            from: "raiseproductions23@gmail.com",
             to: idUser.email,
             subject: `Informasi update project dengan ID ${idVideo.id}`,
             text: `Project anda sedang ditahap ${newStatus}`
