@@ -26,7 +26,7 @@ const Gallery = () => {
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 3.png" alt=""/>
                         Lomba Kemenhub Nasional
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1QKijPTaDb89jdiZfTgb6tgOju70Zs6IC/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1AaKEpZQ40dBOBF5K-RoJ9_1_wJ1pudj1/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 4.png" alt=""/>
                         "Paranoid" Fake Project
                     </a>
