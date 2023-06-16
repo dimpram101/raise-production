@@ -2,8 +2,8 @@ import jwt from "jsonwebtoken";
 import Users from "../models/Users.js";
 
 export const verifyToken = (req, res, next) => {
-  const token = req.headers.authorization;
-  console.log(token);
+  const token = req.headers.authorization.includes("Bearer") ? req.headers.authorization.split(" ")[1] : req.headers.authorization;
+  // console.log(token);
   if (!token) return res.status(401).json({ status: "ERROR", msg: "Tidak terautentikasi" });
 
   try {

@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const statusSchema = new Schema({
-  keterangan: String,
+  keterangan: Schema.Types.String,
   tanggalUpdate: Schema.Types.Date
 }, {_id: false});
 
@@ -10,6 +10,11 @@ const customizeSchema = new Schema({
   jumlah: Schema.Types.String,
   harga: Schema.Types.String,
 }, {_id: false})
+
+const paymentSchema = new Schema({
+  isPaid: {type: Schema.Types.Boolean, default: false},
+  path: {type: Schema.Types.String, default: ""},
+}, {_id: false});
 
 const projectSchema = new Schema({
   userId: {
@@ -20,7 +25,7 @@ const projectSchema = new Schema({
     type: Schema.Types.String,
   },
   deskripsi: {
-    type: String,
+    type: Schema.Types.String,
     required: true,
   },
   kustom: [customizeSchema],
@@ -29,14 +34,15 @@ const projectSchema = new Schema({
     required: true
   },
   link_komponen: {
-    type: String
+    type: Schema.Types.String
   },
   link_referensi: {
     type: String
   },
+  payment: {type: paymentSchema, default: {isPaid: false, path: ""}},
   status: [statusSchema],
-  linkHasilAkhir: String,
-  harga: String,
+  linkHasilAkhir: Schema.Types.String,
+  harga: Schema.Types.String,
 });
 
 const ProjectVideos = model("project-videos", projectSchema);

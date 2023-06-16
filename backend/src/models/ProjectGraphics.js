@@ -15,31 +15,15 @@ const projectSchema = new Schema({
   },
   deskripsi: {
     type: String,
-    // required: true,
-  },
-  genre: {
-    type: String,
-    // required: true,
-  },
-  ukuran: {
-    type: String,
-    // required: true,
-  },
-  color_pallete: {
-    type: String,
-    // required: true,
+    required: true,
   },
   referensi: {
     type: String,
-    // required: true,
+    required: true,
   },
   deadline: {
     type: Schema.Types.Date,
-    // required: true
-  },
-  link_komponen: {
-    type: String,
-    // required: true,
+    required: true
   },
   status: [statusSchema],
   linkHasilAkhir: String,

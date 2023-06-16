@@ -8,6 +8,7 @@ import MyOrder from "./MyOrder";
 import MyOrderDetail from "./MyOrderDetail";
 import Footer from "../Components/Landing_page/Footer";
 import Profile from "./Profile";
+import Gallery from "../pages/Gallery";
 
 const CustomerPages = () => {
 
@@ -17,6 +18,7 @@ const CustomerPages = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/gallery" element={<Gallery />}></Route>
           <Route path="/video-editing" element={<VideoEditing />}></Route>
           <Route path="/making-logo" element={<MakingLogo />}></Route>
           <Route path="/making-poster" element={<MakingPoster />}></Route>
