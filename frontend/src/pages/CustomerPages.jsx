@@ -24,7 +24,7 @@ const CustomerPages = () => {
           <Route path="/making-poster" element={<MakingPoster />}></Route>
           <Route path="/myorder" element={<MyOrder />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
-          <Route path="/myorder/:id" element={<MyOrderDetail />}></Route>
+          <Route path="/myord" element={<MyOrderDetail />}></Route>
         </Routes>
         <Footer />
       </div>

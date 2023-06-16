@@ -96,7 +96,7 @@ const Login = () => {
                   type="button"
                   id="daftar_button"
                   className="text-white bg-[#ECB365] hover:bg-[#e19f42] h-[48px] w-[500px] rounded"
-                  onClick={() => navigate("/login")}
+                  onClick={() => navigate("/register")}
                 >
                   DAFTAR
                 </button>

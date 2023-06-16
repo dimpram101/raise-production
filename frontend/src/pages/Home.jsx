@@ -140,10 +140,14 @@ const Home = () => {
             <GaleryCard content="https://drive.google.com/file/d/1AaKEpZQ40dBOBF5K-RoJ9_1_wJ1pudj1/view?usp=drive_link" src="./assets/dummy/Video 4.png" title="Paranoid - Short Mov" />
           </div>
 
-          <div className="justify-item-center bg-blue-800 px-2 mt-5 rounded-lg hover:bg-blue-500">
-            <a href="/gallery" className="text-center text-white">
+          <div className="justify-item-center flex  pt-10 px-2 mt-5 rounded-lg ">
+            <a href="/gallery" className="text-center flex text-white hover:text-[#ECB365]">
               Tampilkan lebih banyak
+
+              <svg aria-hidden="true" className="pl-3 w-10 h-5 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
             </a>
+
+        
           </div>
 
           <div className="text-[72px] mt-80 text-white font-[900]">

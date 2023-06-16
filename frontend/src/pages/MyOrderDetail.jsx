@@ -119,7 +119,9 @@ const MyOrderDetail = () => {
                   <div className="mt-1 text-sm ">File berupa .jpg dan .png</div>
                 </>
               )}
-
+              <div className="font-bold pt-1 ">
+                <p>Trsnsfer ke rek. 1180212091 bank BNI a.n Ramadhan Djibran Sanjaya</p>
+              </div>
               <div className="flex flex-row justify-between font-bold pb-4 border-b-2 border-b-[#ECB365]">
                 <p>Total Harga</p>
                 <p>
