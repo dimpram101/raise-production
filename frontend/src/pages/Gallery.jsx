@@ -14,15 +14,15 @@ const Gallery = () => {
                 </h1>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 justify-center">
                 <div className="grid gap-4 mt-10 ml-2 mr-2 mt-24 mb-2 justify-center">
-                    <a className="justify-center text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1rf8PJ_n59dTd5gqsoYBkNua4YSKI2bu-/view?usp=sharing">
+                    <a className="justify-center text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/13yW-L9eabn7d0iOlGl71BhmHCUNoK7wv/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 1.png" alt=""/>
                         After Movie Spin Etam 2022
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1-B1N9Tik4D4SECmaPohXwJkhMQnqX8kg/view?usp=share_link">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1PG16Dh7aW2_UeWWKXjMbVGsTOfQ83_aJ/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 2.png" alt=""/>
                         Es Gabus Balikpapan
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1aEJoVx-CEDi8n8G3lMcSq9kUugs6aclV/view?usp=share_link">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1G72xgtNLJ53AYkmYWTcRwyo1RnfNCc9V/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 3.png" alt=""/>
                         Lomba Kemenhub Nasional
                     </a>
@@ -30,95 +30,95 @@ const Gallery = () => {
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 4.png" alt=""/>
                         "Paranoid" Fake Project
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/126LDJxO26SwMbFUDcn06kq4IKnsjA1Cl/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1Z33BQF0VS_9bAGFdK40mymjJvf2DOG7X/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 5.png" alt=""/>
                         Promosi Al-Khobar
                     </a>
                 </div>
                 <div className="grid gap-4 mt-10 ml-2 mr-2 mt-24 mb-2">
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1oqzkiI9Geq7E5mikXjjzzJzRmnIudIvr/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1rpB3G87rtY9kXL-WCdfEw66Lc09o93HI/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 6.png" alt=""/>
                         Fake Project "Ghost"
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1NYANwovchevS-Jx7onnQR5S5OVLLxE97/view?usp=share_link">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/10Yx53AYeyC8hO6nmasBiWFknOs-4Q7RP/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 7.png" alt=""/>
                         Parodi Iklan "Yang Terdalam"
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1AOpB8PINEY5JQCO4AacPMH9L1AFHBmMj/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1sHnoKfGZA0Rvl-IkIXczHOuF0KiguGZZ/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 8.png" alt=""/>
                         Jedag Jedug R15
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1imLRCQHYh3ekaC_n_PnJmMXo1PbdHwdu/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1B5ZdfNKeZePuI15OYIihVpU2IS7NZmXg/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 9.png" alt=""/>
                         Workshop Drama
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1BNh7Rm2CIpfp-ybXJOLuYx3AgbMvhcQ-/view?usp=share_link">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1XKYwp8QvDuJgDrS_fd-OFr57vbts7bOi/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 10.png" alt=""/>
                         Wedding H&F 
                     </a>
                 </div>
                 <div className="grid gap-4 mt-10 ml-2 mr-2 mt-24 mb-2">
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1vL15HqwoZNwvNJPa04UgKlBpE9LY49wT/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1MJdLr6X8c5sPdTl1u6gCAXZFA1aPq1hb/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 11.png" alt=""/>
                         @infobarkas.bpn Motion Graphic
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1gVD0c4IAQc5qKkSa4xGEndTaDEH23cRe/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1sk2TB44GmVozKHP8GSQgdfbs_b-NBAwO/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 12.png" alt=""/>
                         Fake Project Recap Video
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1VghDvsJflLEAINQQ_CULUbgDrWPyl8ad/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/14VLPzWEVv4y_vhwv_uctkEqb8HSpNlGn/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 13.png" alt=""/>
                         Cinematic Pantai Monumen
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1MY9MWlQKmnkWG0TkowN_Ix3GN0NhQLL4/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1NYUJoA5mfU5BS81re9_mhTrJhbsW7cHW/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 14.png" alt=""/>
                         Video Essay
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1yb_3UQBtvuprQ0MB4Vf8BgWrorX_oOdY/view?usp=share_link">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1M1TmQFMf2OhEDcecC-33EBvTHsbg2LoB/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 15.png" alt=""/>
                         Youtube Gaming Video
                     </a>
                 </div>
                 <div className="grid gap-4 mt-10 ml-2 mr-2 mt-24 mb-2">
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1vUvTU_HkR0n9FYnRafymM7sSJg_xZTv6/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/18j10rd9bhophCFiXlr0h-BvmuGpqdHMj/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 16.png" alt=""/>
                         Teaser Pre-Wedding Lamaru
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1ushRJ7kNDUoShomIAX8V89YcysMR_xUI/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1bK2b29nlMRI0EbgwfhVBWQK0LGes0y-G/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 17.png" alt=""/>
                         Sepatu Vans
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1PHjFnusP_nEQNSk5xWk_WGS7ZN_NjqUd/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1qeJSGWUpqiRq9gwfJjFJINxNpNrAIhJ4/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 18.png" alt=""/>
                         Iklan Video Challange
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/18yE6NqeZgfcIIajeLkJn1bHdHOX3ynqz/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1jz6yiKRn7foxEI1LIWq5r6RL43bTO713/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 19.png" alt=""/>
                         Odol Tablet
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/12h_Od39XaGMXENPO-SA9vT7a1C0j7Lul/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1_bMbLuuGyTreTwr6Q52uRv7FSIbTfMmN/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 20.png" alt=""/>
                         Speed o Sonic "Once Punch Man" Vfx
                     </a>
                 </div>
                 <div className="grid gap-4 mt-10 ml-2 mr-2 mt-24 mb-2 justify-center">
-                    <a className="justify-center text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1URXO3t-5k_VPeeQ9IhyQSOTKGzubriDw/view?usp=sharing">
+                    <a className="justify-center text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1KVg7veB2W7oaXgY7AA4XNWUNhF-dyQou/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 21.png" alt=""/>
                         Wedding Aris & Revita 
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1rMNVX3ehjxIVdvYiW2s9HGBUNs2Vq_d7/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1t7YLUCb0OjgdoH3-1FCSRQ7AL_IfHohU/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 22.png" alt=""/>
                         Kopi Sepenuh Hati
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1mwon4LqoPLdsv02XnOeeuFqQHCk6_Xzg/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/18miWDubgd3ngGVaQ03EIncWrSexep6OK/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 23.png" alt=""/>
                         Trip Video
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1mlL8AaJWe4YDqTcJUfzV6gMwAhCUGye7/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1lymuSTjMpi0uIMqK1iubt5ojFwzWGWdO/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 24.png" alt=""/>
                         Karma VFX
                     </a>
-                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1wmzfNUTC1mCcktWjFKsL2oXqINbnY6hI/view?usp=sharing">
+                    <a className="text-white text-center font-semibold hover:text-blue-500 hover:italic hover:scale-105  duration-300" href="https://drive.google.com/file/d/1A9RGrHqTIbroXULq76GaBEnW6LDNSP-X/view?usp=sharing">
                         <img class="h-auto max-w-full rounded-lg" src="./assets/gallery/Video 25.png" alt=""/>
                         "Bulan Cinta Laut" Video Education
                     </a>
