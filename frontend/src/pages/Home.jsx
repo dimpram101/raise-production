@@ -134,10 +134,10 @@ const Home = () => {
           </div>
 
           <div className="mt-20 inline-grid grid-cols-2 gap-10">
-            <GaleryCard content="https://drive.google.com/file/d/1rf8PJ_n59dTd5gqsoYBkNua4YSKI2bu-/view?usp=share_link" src="./assets/dummy/Video 1.png" title="After Movie Spin Etam 2022" />
-            <GaleryCard content="https://drive.google.com/file/d/1URXO3t-5k_VPeeQ9IhyQSOTKGzubriDw/view?usp=sharing" src="./assets/dummy/Video 21.png" title="Wedding A&R" />
-            <GaleryCard content="https://drive.google.com/file/d/1oqzkiI9Geq7E5mikXjjzzJzRmnIudIvr/view?usp=sharing" src="./assets/dummy/Video 6.png" title="Ghost - Fake Project MV" />
-            <GaleryCard content="https://drive.google.com/file/d/1QKijPTaDb89jdiZfTgb6tgOju70Zs6IC/view?usp=sharing" src="./assets/dummy/Video 4.png" title="Paranoid - Short Mov" />
+            <GaleryCard content="https://drive.google.com/file/d/13yW-L9eabn7d0iOlGl71BhmHCUNoK7wv/view?usp=drive_link" src="./assets/dummy/Video 1.png" title="After Movie Spin Etam 2022" />
+            <GaleryCard content="https://drive.google.com/file/d/1KVg7veB2W7oaXgY7AA4XNWUNhF-dyQou/view?usp=drive_link" src="./assets/dummy/Video 21.png" title="Wedding A&R" />
+            <GaleryCard content="https://drive.google.com/file/d/1rpB3G87rtY9kXL-WCdfEw66Lc09o93HI/view?usp=drive_link" src="./assets/dummy/Video 6.png" title="Ghost - Fake Project MV" />
+            <GaleryCard content="https://drive.google.com/file/d/1AaKEpZQ40dBOBF5K-RoJ9_1_wJ1pudj1/view?usp=drive_link" src="./assets/dummy/Video 4.png" title="Paranoid - Short Mov" />
           </div>
 
           <div className="justify-item-center bg-blue-800 px-2 mt-5 rounded-lg hover:bg-blue-500">
